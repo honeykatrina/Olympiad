@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Olympiad", "Olympiad\Olympiad.csproj", "{240B9405-8C23-4638-9499-405985C3C5A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{880BBC34-637B-4C6D-8259-3DAC642408FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{240B9405-8C23-4638-9499-405985C3C5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{240B9405-8C23-4638-9499-405985C3C5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{240B9405-8C23-4638-9499-405985C3C5A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{880BBC34-637B-4C6D-8259-3DAC642408FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{880BBC34-637B-4C6D-8259-3DAC642408FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{880BBC34-637B-4C6D-8259-3DAC642408FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{880BBC34-637B-4C6D-8259-3DAC642408FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
