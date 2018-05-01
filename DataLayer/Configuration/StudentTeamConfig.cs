@@ -1,0 +1,26 @@
+﻿using DataLayer.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration;
+using System.Linq;
+using System.Web;
+
+namespace DataLayer.Configuration
+{
+    internal class StudentTeamConfig : EntityTypeConfiguration<StudentTeam>
+    {
+        public StudentTeamConfig()
+        {
+            HasKey(x => new { x.StudentID, x.TeamID });
+            ToTable("StudentTeams");
+
+            HasRequired(x => x.Student)
+                .WithMany(x => x.Teams)
+                .HasForeignKey(x => x.TeamID);
+
+            HasRequired(x => x.Team)
+                .WithMany(x => x.Students)
+                .HasForeignKey(x => x.StudentID);
+        }
+    }
+}

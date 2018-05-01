@@ -17,5 +17,7 @@ namespace DataLayer.Models
         public int DepartmentId { get; set; }
 
         public virtual Department Department { get; set; }
+        public virtual ICollection<OlympiadTeam> InstructorTeams { get; set; }
+        public virtual ICollection<OlympiadStudent> InstructorStudents { get; set; }
     }
 }
