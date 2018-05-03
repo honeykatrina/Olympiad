@@ -16,11 +16,10 @@ namespace DataLayer.Context
             Database.SetInitializer<OlympiadContext>(new ContextInitializer());
         }
 
-        public OlympiadContext()
-            : base("DbConnection")
+        public OlympiadContext(string connectionString)
+            : base(connectionString)
         {
         }
-
 
         public DbSet<Department> Departments { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
