@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Olympiad", "Olympiad\Olympi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{8F9E6CFE-F7C2-4816-93DC-76890D14DA52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLayer", "LogicLayer\LogicLayer.csproj", "{4F47895F-4567-47D1-A751-108F59DE2AF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8F9E6CFE-F7C2-4816-93DC-76890D14DA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F9E6CFE-F7C2-4816-93DC-76890D14DA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F9E6CFE-F7C2-4816-93DC-76890D14DA52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F47895F-4567-47D1-A751-108F59DE2AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F47895F-4567-47D1-A751-108F59DE2AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F47895F-4567-47D1-A751-108F59DE2AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F47895F-4567-47D1-A751-108F59DE2AF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

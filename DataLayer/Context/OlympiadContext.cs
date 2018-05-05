@@ -29,7 +29,7 @@ namespace DataLayer.Context
         public DbSet<Student> Students { get; set; }
         public DbSet<StudentTeam> StudentTeams { get; set; }
         public DbSet<Team> Teams { get; set; }
-        public DbSet<University> Universitys { get; set; }
+        public DbSet<University> Universities { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

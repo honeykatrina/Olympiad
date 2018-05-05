@@ -276,9 +276,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
-      <Project>{8f9e6cfe-f7c2-4816-93dc-76890d14da52}</Project>
-      <Name>DataLayer</Name>
+    <ProjectReference Include="..\LogicLayer\LogicLayer.csproj">
+      <Project>{4f47895f-4567-47d1-a751-108f59de2af2}</Project>
+      <Name>LogicLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
