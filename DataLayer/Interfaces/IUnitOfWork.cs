@@ -7,14 +7,14 @@ using DataLayer.Models;
 
 namespace DataLayer.Interfaces
 {
-    interface IUnitOfWork: IDisposable
+    public interface IUnitOfWork: IDisposable
     {
-        IRepository<Department> Department { get; }
-        IRepository<Instructor> Instructor { get; }
-        IRepository<Olympiad> Olympiad { get; }
-        IRepository<Student> Student { get; }
-        IRepository<Team> Team { get; }
-        IRepository<University> University { get; }
+        IRepository<Department> Departments { get; }
+        IRepository<Instructor> Instructors { get; }
+        IRepository<Olympiad> Olympiads { get; }
+        IRepository<Student> Students { get; }
+        IRepository<Team> Teams { get; }
+        IRepository<University> Universities { get; }
         void Save();
     }
 }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LogicLayer.Models
 {
-    public class Team
+    public class TeamDTO
     {
         public int TeamID { get; set; }
         public string TeamName { get; set; }

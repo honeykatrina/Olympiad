@@ -22,7 +22,7 @@ namespace DataLayer.Repositories
         {
             _context = new OlympiadContext(connectionString);
         }
-        public IRepository<Department> Department
+        public IRepository<Department> Departments
         {
             get
             {
@@ -32,7 +32,7 @@ namespace DataLayer.Repositories
             } 
         }
 
-        public IRepository<Instructor> Instructor
+        public IRepository<Instructor> Instructors
         {
             get
             {
@@ -42,7 +42,7 @@ namespace DataLayer.Repositories
             } 
         }
 
-        public IRepository<Olympiad> Olympiad
+        public IRepository<Olympiad> Olympiads
         {
             get
             {
@@ -52,7 +52,7 @@ namespace DataLayer.Repositories
             } 
         }
 
-        public IRepository<Student> Student
+        public IRepository<Student> Students
         {
             get
             {
@@ -62,7 +62,7 @@ namespace DataLayer.Repositories
             } 
         }
 
-        public IRepository<Team> Team
+        public IRepository<Team> Teams
         {
             get
             {
@@ -72,7 +72,7 @@ namespace DataLayer.Repositories
             } 
         }
 
-        public IRepository<University> University
+        public IRepository<University> Universities
         {
             get
             {
