@@ -16,11 +16,13 @@ namespace DataLayer.Configuration
 
             HasRequired(x => x.Student)
                 .WithMany(x => x.Teams)
-                .HasForeignKey(x => x.TeamID);
+                .HasForeignKey(x => x.TeamID)
+                .WillCascadeOnDelete(false);
 
             HasRequired(x => x.Team)
                 .WithMany(x => x.Students)
-                .HasForeignKey(x => x.StudentID);
+                .HasForeignKey(x => x.StudentID)
+                .WillCascadeOnDelete(false);
         }
     }
 }

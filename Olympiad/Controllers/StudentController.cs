@@ -13,10 +13,12 @@ namespace Olympiad.Controllers
     public class StudentController : Controller
     {
         private IService<StudentDTO> _studentService;
+        private IService<DepartmentDTO> _depatrmentService;
 
-        public StudentController(IService<StudentDTO> studService)
+        public StudentController(IService<StudentDTO> studService, IService<DepartmentDTO> depatrmentService)
         {
             _studentService = studService;
+            _depatrmentService = depatrmentService;
         }
         // GET: Student
         public ActionResult Index()
@@ -26,25 +28,33 @@ namespace Olympiad.Controllers
             return View(students);
         }
 
-        // GET: Student/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: Student/Create
         public ActionResult Create()
         {
+            IEnumerable<DepartmentDTO> departmentDtos = _depatrmentService.GetItems();
+            var departments = Mapper.Map<IEnumerable<DepartmentDTO>, List<DepartmentViewModel>>(departmentDtos);
+            ViewBag.Departments = departments;
             return View();
         }
 
         // POST: Student/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(StudentViewModel student)
         {
             try
             {
                 // TODO: Add insert logic here
+                _studentService.AddNewItem(new StudentDTO()
+                {
+                    StudentID = student.StudentID,
+                    StudentName = student.StudentName,
+                    StudentSurname = student.StudentSurname,
+                    StudentPatronymic = student.StudentPatronymic,
+                    Course = student.Course,
+                    Specialty = student.Specialty,
+                    Group = student.Group,
+                    DepartmentId = student.DepartmentId
+                });
 
                 return RedirectToAction("Index");
             }

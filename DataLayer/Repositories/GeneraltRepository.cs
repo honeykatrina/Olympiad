@@ -12,11 +12,15 @@ namespace DataLayer.Repositories
     {
         private OlympiadContext _context;
 
+        public GeneralRepository()
+        {
+            
+        }
         protected GeneralRepository(OlympiadContext context)
         {
             _context = context;
         }
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return _context.Set<T>();
         }

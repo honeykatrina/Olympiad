@@ -15,7 +15,8 @@ namespace DataLayer.Configuration
             ToTable("Olympiads");
             HasRequired(x => x.University)
                 .WithMany(x => x.Olympiads)
-                .HasForeignKey(x => x.UniversityID);
+                .HasForeignKey(x => x.UniversityID)
+                .WillCascadeOnDelete(false);
         }
     }
 }

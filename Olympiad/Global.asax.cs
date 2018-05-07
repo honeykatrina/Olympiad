@@ -31,12 +31,15 @@ namespace Olympiad
             NinjectModule serviceModule = new ServiceModule("DbConnection");
             var kernel = new StandardKernel(olympiadModule, serviceModule);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            kernel.Unbind<ModelValidatorProvider>(); // ?
 
             // Create mappers
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Student, StudentDTO>();
                 cfg.CreateMap<StudentViewModel, StudentDTO>();
+                cfg.CreateMap<Department, DepartmentDTO>();
+                cfg.CreateMap<DepartmentViewModel, DepartmentDTO>();
             });
         }
     }

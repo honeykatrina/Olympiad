@@ -15,6 +15,7 @@ namespace Olympiad.Util
         public override void Load()
         {
             Bind<IService<StudentDTO>>().To<StudentService>();
+            Bind<IService<DepartmentDTO>>().To<DepartmentService>();
         }
     }
 }

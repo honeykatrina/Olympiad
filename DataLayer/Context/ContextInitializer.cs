@@ -7,7 +7,7 @@ using DataLayer.Models;
 
 namespace DataLayer.Context
 {
-    public class ContextInitializer: DropCreateDatabaseAlways<OlympiadContext>
+    public class ContextInitializer: CreateDatabaseIfNotExists<OlympiadContext> //DropCreateDatabaseAlways<OlympiadContext>
     {
         protected override void Seed(OlympiadContext context)
         {
@@ -30,42 +30,42 @@ namespace DataLayer.Context
 
             students.ForEach(s => context.Students.Add(s));
             context.SaveChanges();
-            
-            //var instructors = new List<Instructor>
-            //{
-            //    new Instructor { InstructorID = 1, InstructorName = "ggss", InstructorSurname="rhbwr",
-            //        InstructorPatronymic ="grwgw", InstructorTitle = "grgw", InstructorDegree = "rger",
-            //        InstructorPosition = "gr", DepartmentId = 1},
-            //    new Instructor { InstructorID = 2, InstructorName = "ggrrrrrrrgwrhwss", InstructorSurname="hethaearhbwr",
-            //        InstructorPatronymic ="ghaerarwgw", InstructorTitle = "grhrgw", InstructorDegree = "rger",
-            //        InstructorPosition = "gr", DepartmentId = 2}
-            //};
-            //instructors.ForEach(s => context.Instructors.Add(s));
-            //context.SaveChanges();
+
+            var instructors = new List<Instructor>
+            {
+                new Instructor { InstructorID = 1, InstructorName = "ggss", InstructorSurname="rhbwr",
+                    InstructorPatronymic ="grwgw", InstructorTitle = "grgw", InstructorDegree = "rger",
+                    InstructorPosition = "gr", DepartmentId = 1},
+                new Instructor { InstructorID = 2, InstructorName = "ggrrrrrrrgwrhwss", InstructorSurname="hethaearhbwr",
+                    InstructorPatronymic ="ghaerarwgw", InstructorTitle = "grhrgw", InstructorDegree = "rger",
+                    InstructorPosition = "gr", DepartmentId = 2}
+            };
+            instructors.ForEach(s => context.Instructors.Add(s));
+            context.SaveChanges();
 
 
 
-            //var universities = new List<University>
-            //{
-            //    new University { UniversityID = 1, City = "fsf", Country = "fs", UniversityName = "fssdv"},
-            //    new University { UniversityID = 2, City = "bsnh", Country = "gsbfs", UniversityName = "sgbs"},
-            //};
-            //universities.ForEach(s => context.Universities.Add(s));
-            //context.SaveChanges();
+            var universities = new List<University>
+            {
+                new University { UniversityID = 1, City = "fsf", Country = "fs", UniversityName = "fssdv"},
+                new University { UniversityID = 2, City = "bsnh", Country = "gsbfs", UniversityName = "sgbs"},
+            };
+            universities.ForEach(s => context.Universities.Add(s));
+            context.SaveChanges();
 
 
 
-            //var olympiads = new List<Olympiad>
-            //{
-            //    new Olympiad { OlympiadID = 1, OlympiadName = "ol1", OlympiadLevel = "rgr",
-            //        OlympiadStartDate = DateTime.Parse("2005-09-01"), OlympiadEndDate = DateTime.Parse("2005-09-01"),
-            //        OlympiadDirection = "fbdb", OlympiadType = "fvd", UniversityID = 1},
-            //    new Olympiad { OlympiadID = 2, OlympiadName = "ol2", OlympiadLevel = "rgr",
-            //        OlympiadStartDate = DateTime.Parse("2017-09-01"), OlympiadEndDate = DateTime.Parse("2017-09-01"),
-            //        OlympiadDirection = "fbdb", OlympiadType = "fvd", UniversityID = 2}
-            //};
-            //olympiads.ForEach(s => context.Olympiads.Add(s));
-            //context.SaveChanges();
+            var olympiads = new List<Olympiad>
+            {
+                new Olympiad { OlympiadID = 1, OlympiadName = "ol1", OlympiadLevel = "rgr",
+                    OlympiadStartDate = DateTime.Parse("2005-09-01"), OlympiadEndDate = DateTime.Parse("2005-09-01"),
+                    OlympiadDirection = "fbdb", OlympiadType = "fvd", UniversityID = 1},
+                new Olympiad { OlympiadID = 2, OlympiadName = "ol2", OlympiadLevel = "rgr",
+                    OlympiadStartDate = DateTime.Parse("2017-09-01"), OlympiadEndDate = DateTime.Parse("2017-09-01"),
+                    OlympiadDirection = "fbdb", OlympiadType = "fvd", UniversityID = 2}
+            };
+            olympiads.ForEach(s => context.Olympiads.Add(s));
+            context.SaveChanges();
 
             //var olympiadstudents = new List<OlympiadStudent>
             //{
@@ -77,13 +77,13 @@ namespace DataLayer.Context
             //context.SaveChanges();
 
 
-            //var teams = new List<Team>
-            //{
-            //    new Team { TeamID = 1, TeamName = "team1"},
-            //    new Team { TeamID = 2, TeamName = "team2"}
-            //};
-            //teams.ForEach(s => context.Teams.Add(s));
-            //context.SaveChanges();
+            var teams = new List<Team>
+            {
+                new Team { TeamID = 1, TeamName = "team1"},
+                new Team { TeamID = 2, TeamName = "team2"}
+            };
+            teams.ForEach(s => context.Teams.Add(s));
+            context.SaveChanges();
 
 
             //var olympiadteams = new List<OlympiadTeam>

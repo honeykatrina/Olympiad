@@ -15,5 +15,7 @@ namespace LogicLayer.Models
         public string Group { get; set; }
         public string Specialty { get; set; }
         public int DepartmentId { get; set; }
+
+        public DepartmentDTO Department { get; set; }
     }
 }

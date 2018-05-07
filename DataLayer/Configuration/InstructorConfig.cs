@@ -15,7 +15,8 @@ namespace DataLayer.Configuration
             ToTable("Instructors");
             HasRequired(x => x.Department)
                 .WithMany(x => x.Instructors)
-                .HasForeignKey(x => x.DepartmentId);
+                .HasForeignKey(x => x.DepartmentId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

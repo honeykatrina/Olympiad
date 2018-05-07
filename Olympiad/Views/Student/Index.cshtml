@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Olympiad.Models.StudentViewModel>
+﻿@using Olympiad.Models
+@model IEnumerable<Olympiad.Models.StudentViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -33,7 +34,7 @@
             @Html.DisplayNameFor(model => model.Specialty)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DepartmentId)
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
         </th>
         <th></th>
     </tr>
@@ -62,7 +63,7 @@
             @Html.DisplayFor(modelItem => item.Specialty)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DepartmentId)
+            @Html.DisplayFor(modelItem => item.Department.DepartmentName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

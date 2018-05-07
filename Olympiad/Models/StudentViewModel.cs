@@ -15,5 +15,7 @@ namespace Olympiad.Models
         public string Group { get; set; }
         public string Specialty { get; set; }
         public int DepartmentId { get; set; }
+
+        public DepartmentViewModel Department { get; set; }
     }
 }
