@@ -31,8 +31,20 @@ namespace Olympiad.Controllers
         // GET: Student/Create
         public ActionResult Create()
         {
+            var allDepartments = _depatrmentService.GetItems();
+            var items = new List<SelectListItem>();
+
+            foreach (var dep in allDepartments)
+            {
+                items.Add(new SelectListItem()
+                {
+                    Text = dep.DepartmentName,
+                    Value = dep.DepartmentID.ToString()
+                });
+            }
+            ViewBag.Departments = items;
             //IEnumerable<DepartmentDTO> departmentDtos = _depatrmentService.GetItems();
-           // var departments = Mapper.Map<IEnumerable<DepartmentDTO>, List<DepartmentViewModel>>(departmentDtos);
+            // var departments = Mapper.Map<IEnumerable<DepartmentDTO>, List<DepartmentViewModel>>(departmentDtos);
             //ViewData["Departments"] = departments.Select(x => x.DepartmentName).ToList();
             //ViewBag.Departments = departments.Select(x => x.DepartmentName).ToList();
             return View();
@@ -44,8 +56,8 @@ namespace Olympiad.Controllers
         {
             //try
             //{
-                // TODO: Add insert logic here
-            var selectedDep = M
+            // TODO: Add insert logic here
+            
                 _studentService.AddNewItem(new StudentDTO()
                 {
                     StudentID = student.StudentID,

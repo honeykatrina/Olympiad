@@ -67,7 +67,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Department.DepartmentName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Department.DepartmentName, new SelectList(Enum.GetValues(typeof(DepartmentName))))
+                @Html.DropDownListFor(model => model.DepartmentId,
+               new SelectList(ViewBag.Departments, "Value", "Text", 1))
                 @Html.ValidationMessageFor(model => model.Department.DepartmentName)
             </div>
         </div>
