@@ -35,7 +35,7 @@ namespace DataLayer.Repositories
             return _context.Set<T>().Where(predicate).ToList();
         }
 
-        public void Create(T item)
+        public virtual void Create(T item)
         {
             _context.Set<T>().Add(item);
         }

@@ -8,6 +8,13 @@ namespace Olympiad.Models
     public class DepartmentViewModel
     {
         public int DepartmentID { get; set; }
-        public string DepartmentName { get; set; }
+        public DepartmentName DepartmentName { get; set; }
+
+    }
+
+    public enum DepartmentName
+    {
+        first,
+        second
     }
 }

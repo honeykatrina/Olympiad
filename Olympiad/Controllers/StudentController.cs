@@ -31,9 +31,10 @@ namespace Olympiad.Controllers
         // GET: Student/Create
         public ActionResult Create()
         {
-            IEnumerable<DepartmentDTO> departmentDtos = _depatrmentService.GetItems();
-            var departments = Mapper.Map<IEnumerable<DepartmentDTO>, List<DepartmentViewModel>>(departmentDtos);
-            ViewBag.Departments = departments;
+            //IEnumerable<DepartmentDTO> departmentDtos = _depatrmentService.GetItems();
+           // var departments = Mapper.Map<IEnumerable<DepartmentDTO>, List<DepartmentViewModel>>(departmentDtos);
+            //ViewData["Departments"] = departments.Select(x => x.DepartmentName).ToList();
+            //ViewBag.Departments = departments.Select(x => x.DepartmentName).ToList();
             return View();
         }
 
@@ -41,9 +42,10 @@ namespace Olympiad.Controllers
         [HttpPost]
         public ActionResult Create(StudentViewModel student)
         {
-            try
-            {
+            //try
+            //{
                 // TODO: Add insert logic here
+            var selectedDep = M
                 _studentService.AddNewItem(new StudentDTO()
                 {
                     StudentID = student.StudentID,
@@ -57,11 +59,11 @@ namespace Olympiad.Controllers
                 });
 
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //}
+           // catch
+            //{
+              //  return View();
+           // }
         }
 
         // GET: Student/Edit/5

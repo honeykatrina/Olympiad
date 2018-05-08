@@ -20,5 +20,10 @@ namespace DataLayer.Repositories
         {
             return _context.Students.Include(x => x.Department);
         }
+
+        public override void Create(Student item)
+        {
+            _context.Students.Add(item);
+        }
     }
 }
