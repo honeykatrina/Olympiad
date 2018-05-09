@@ -151,7 +151,6 @@
     <Compile Include="Models\University.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EFUnitOfWork.cs" />
-    <Compile Include="Repositories\GeneraltRepository.cs" />
     <Compile Include="Repositories\DepartmentRepository.cs" />
     <Compile Include="Repositories\InstructorRepository.cs" />
     <Compile Include="Repositories\OlympiadRepository.cs" />

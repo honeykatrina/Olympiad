@@ -7,7 +7,7 @@ using DataLayer.Models;
 
 namespace DataLayer.Context
 {
-    public class ContextInitializer: DropCreateDatabaseAlways<OlympiadContext>//CreateDatabaseIfNotExists<OlympiadContext> //DropCreateDatabaseAlways<OlympiadContext>
+    public class ContextInitializer: CreateDatabaseIfNotExists<OlympiadContext> //DropCreateDatabaseAlways<OlympiadContext>
     {
         protected override void Seed(OlympiadContext context)
         {

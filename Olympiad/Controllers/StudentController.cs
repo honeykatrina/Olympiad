@@ -75,23 +75,26 @@ namespace Olympiad.Controllers
         // GET: Student/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            StudentDTO studentDto = _studentService.GetItem(id);
+            var student = Mapper.Map<StudentDTO, StudentViewModel>(studentDto);
+            return View(student);
         }
 
         // POST: Student/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //try
+            //{
+            StudentDTO studentDto = _studentService.GetItem(id);
+            _studentService.UpdateItem(studentDto);
+            return RedirectToAction("Index");
+            
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         // GET: Student/Delete/5

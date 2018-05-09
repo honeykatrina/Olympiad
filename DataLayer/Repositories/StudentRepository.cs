@@ -5,10 +5,11 @@ using System.Linq;
 using System.Web;
 using DataLayer.Context;
 using DataLayer.Models;
+using DataLayer.Interfaces;
 
 namespace DataLayer.Repositories
 {
-    public class StudentRepository: GeneralRepository<Student>
+    public class StudentRepository: IRepository<Student>
     {
         private OlympiadContext _context;
         public StudentRepository(OlympiadContext context)
@@ -16,26 +17,34 @@ namespace DataLayer.Repositories
             _context = context;
         }
 
-        public override IEnumerable<Student> GetAll()
+        public IEnumerable<Student> GetAll()
         {
             return _context.Students.Include(x => x.Department);
         }
 
-        public override void Create(Student item)
+        public void Create(Student item)
         {
             _context.Students.Add(item);
+            _context.SaveChanges();
         }
 
-        public override Student Get(int? id)
+        public Student Get(int? id)
         {
             return _context.Students.Find(id);
         }
 
-        public override void Delete(int id)
+        public void Delete(int id)
         {
             Student item = _context.Students.Find(id);
             if (item != null)
                 _context.Students.Remove(item);
+            _context.SaveChanges();
+        }
+
+        public void Update(Student item)
+        {
+            _context.Entry(item).State = EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }
