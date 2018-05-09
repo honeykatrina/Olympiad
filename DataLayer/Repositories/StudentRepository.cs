@@ -25,5 +25,17 @@ namespace DataLayer.Repositories
         {
             _context.Students.Add(item);
         }
+
+        public override Student Get(int? id)
+        {
+            return _context.Students.Find(id);
+        }
+
+        public override void Delete(int id)
+        {
+            Student item = _context.Students.Find(id);
+            if (item != null)
+                _context.Students.Remove(item);
+        }
     }
 }

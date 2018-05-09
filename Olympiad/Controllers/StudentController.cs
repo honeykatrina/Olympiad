@@ -43,10 +43,6 @@ namespace Olympiad.Controllers
                 });
             }
             ViewBag.Departments = items;
-            //IEnumerable<DepartmentDTO> departmentDtos = _depatrmentService.GetItems();
-            // var departments = Mapper.Map<IEnumerable<DepartmentDTO>, List<DepartmentViewModel>>(departmentDtos);
-            //ViewData["Departments"] = departments.Select(x => x.DepartmentName).ToList();
-            //ViewBag.Departments = departments.Select(x => x.DepartmentName).ToList();
             return View();
         }
 
@@ -56,8 +52,6 @@ namespace Olympiad.Controllers
         {
             //try
             //{
-            // TODO: Add insert logic here
-            
                 _studentService.AddNewItem(new StudentDTO()
                 {
                     StudentID = student.StudentID,
@@ -101,25 +95,26 @@ namespace Olympiad.Controllers
         }
 
         // GET: Student/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            StudentDTO studentDto = _studentService.GetItem(id);
+            var student = Mapper.Map<StudentDTO, StudentViewModel>(studentDto);
+            return View(student);
         }
 
         // POST: Student/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
+            //try
+            //{
+            _studentService.DeleteItem(id);
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
     }
 }

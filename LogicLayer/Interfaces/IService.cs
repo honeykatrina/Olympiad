@@ -11,7 +11,7 @@ namespace LogicLayer.Interfaces
         void AddNewItem(T item);
         void UpdateItem(T item);
         void DeleteItem(int id);
-        T GetItem(int id);
+        T GetItem(int? id);
         IEnumerable<T> GetItems();
         void Dispose();
     }

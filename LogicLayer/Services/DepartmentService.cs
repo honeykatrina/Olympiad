@@ -42,7 +42,7 @@ namespace LogicLayer.Services
             _database.Dispose();
         }
 
-        public DepartmentDTO GetItem(int id)
+        public DepartmentDTO GetItem(int? id)
         {
             Department department = _database.Departments.Get(id);
             //return Mapper.Map<Department, DepartmentDTO>(Department);

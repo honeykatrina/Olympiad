@@ -49,7 +49,7 @@ namespace LogicLayer.Services
             _database.Dispose();
         }
 
-        public StudentDTO GetItem(int id)
+        public StudentDTO GetItem(int? id)
         {
             Student student = _database.Students.Get(id);
             //return Mapper.Map<Student, StudentDTO>(student);

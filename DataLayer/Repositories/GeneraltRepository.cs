@@ -25,7 +25,7 @@ namespace DataLayer.Repositories
             return _context.Set<T>();
         }
 
-        public T Get(int id)
+        public virtual T Get(int? id)
         {
             return _context.Set<T>().Find(id);
         }
@@ -45,7 +45,7 @@ namespace DataLayer.Repositories
             _context.Entry(item).State = EntityState.Modified;
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             T item = _context.Set<T>().Find(id);
             if (item != null)
