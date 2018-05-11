@@ -88,7 +88,7 @@ namespace Olympiad.Controllers
             //{
             StudentDTO studentDto = _studentService.GetItem(id);
             _studentService.UpdateItem(studentDto);
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
             
             //}
             //catch

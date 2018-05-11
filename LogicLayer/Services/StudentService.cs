@@ -73,8 +73,20 @@ namespace LogicLayer.Services
 
         public void UpdateItem(StudentDTO item) //???
         {
-            Student student = _database.Students.Get(item.StudentID);
+            Student student = new Student
+            {
+                StudentID = item.StudentID,
+                StudentName = item.StudentName,
+                StudentSurname = item.StudentSurname,
+                StudentPatronymic = item.StudentPatronymic,
+                Course = item.Course,
+                Group = item.Group,
+                Specialty = item.Specialty,
+                DepartmentId = item.DepartmentId
+            };
+            //Student student = _database.Students.Get(item.StudentID);
             _database.Students.Update(student);
+            _database.Save();
         }
     }
 }
