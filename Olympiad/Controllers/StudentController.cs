@@ -94,12 +94,22 @@ namespace Olympiad.Controllers
 
         // POST: Student/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, StudentDTO student)
+        public ActionResult Edit(StudentViewModel student)
         {
             //try
             //{
-            _studentService.UpdateItem(student);
-                return RedirectToAction("Index");
+            _studentService.UpdateItem(new StudentDTO()
+            {
+                StudentID = student.StudentID,
+                StudentName = student.StudentName,
+                StudentSurname = student.StudentSurname,
+                StudentPatronymic = student.StudentPatronymic,
+                Course = student.Course,
+                Specialty = student.Specialty,
+                Group = student.Group,
+                DepartmentId = student.DepartmentId
+            });
+            return RedirectToAction("Index");
             
             //}
             //catch
