@@ -71,10 +71,22 @@ namespace LogicLayer.Services
             return Mapper.Map<IEnumerable<Instructor>, List<InstructorDTO>>(_database.Instructors.GetAll());
         }
 
-        public void UpdateItem(InstructorDTO item) //???
+        public void UpdateItem(InstructorDTO item)
         {
-            Instructor instructor = _database.Instructors.Get(item.InstructorID);
+            Instructor instructor = new Instructor
+            {
+                InstructorID = item.InstructorID,
+                InstructorName = item.InstructorName,
+                InstructorSurname = item.InstructorSurname,
+                InstructorPatronymic = item.InstructorPatronymic,
+                InstructorTitle = item.InstructorTitle,
+                InstructorDegree = item.InstructorDegree,
+                InstructorPosition = item.InstructorPosition,
+                DepartmentId = item.DepartmentId
+            };
+
             _database.Instructors.Update(instructor);
+            _database.Save();
         }
     }
 }

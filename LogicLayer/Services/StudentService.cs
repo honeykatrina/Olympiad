@@ -52,7 +52,6 @@ namespace LogicLayer.Services
         public StudentDTO GetItem(int? id)
         {
             Student student = _database.Students.Get(id);
-            //return Mapper.Map<Student, StudentDTO>(student);
             return new StudentDTO
             {
                 StudentID = student.StudentID,
@@ -71,7 +70,7 @@ namespace LogicLayer.Services
             return Mapper.Map<IEnumerable<Student>, List<StudentDTO>>(_database.Students.GetAll());
         }
 
-        public void UpdateItem(StudentDTO item) //???
+        public void UpdateItem(StudentDTO item)
         {
             Student student = new Student
             {
@@ -84,7 +83,6 @@ namespace LogicLayer.Services
                 Specialty = item.Specialty,
                 DepartmentId = item.DepartmentId
             };
-            //Student student = _database.Students.Get(item.StudentID);
             _database.Students.Update(student);
             _database.Save();
         }

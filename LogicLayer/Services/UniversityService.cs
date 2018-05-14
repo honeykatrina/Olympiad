@@ -64,10 +64,19 @@ namespace LogicLayer.Services
             return Mapper.Map<IEnumerable<University>, List<UniversityDTO>>(_database.Universities.GetAll());
         }
 
-        public void UpdateItem(UniversityDTO item) //???
+        public void UpdateItem(UniversityDTO item)
         {
-            University university = _database.Universities.Get(item.UniversityID);
+            University university = new University
+            {
+                UniversityID = item.UniversityID,
+                UniversityName = item.UniversityName,
+                City = item.City,
+                Country = item.Country
+
+            };
+
             _database.Universities.Update(university);
+            _database.Save();
         }
     }
 }

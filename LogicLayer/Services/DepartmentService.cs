@@ -58,10 +58,15 @@ namespace LogicLayer.Services
             return Mapper.Map<IEnumerable<Department>, List<DepartmentDTO>>(_database.Departments.GetAll());
         }
 
-        public void UpdateItem(DepartmentDTO item) //???
+        public void UpdateItem(DepartmentDTO item)
         {
-            Department department = _database.Departments.Get(item.DepartmentID);
+            Department department = new Department
+            {
+                DepartmentID = item.DepartmentID,
+                DepartmentName = item.DepartmentName
+            };
             _database.Departments.Update(department);
+            _database.Save();
         }
     }
 }
