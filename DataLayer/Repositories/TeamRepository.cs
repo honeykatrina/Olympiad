@@ -25,6 +25,7 @@ namespace DataLayer.Repositories
         public void Create(Team item)
         {
             _context.Teams.Add(item);
+            _context.SaveChanges();
         }
 
         public Team Get(int? id)
@@ -37,11 +38,17 @@ namespace DataLayer.Repositories
             Team item = _context.Teams.Find(id);
             if (item != null)
                 _context.Teams.Remove(item);
+            _context.SaveChanges();
         }
 
         public void Update(Team item)
         {
-            _context.Entry(item).State = EntityState.Modified;
+            Team dbTeam = _context.Teams.Find(item.TeamID);
+            if (dbTeam != null)
+            {
+                dbTeam.TeamName = item.TeamName;
+            }
+            _context.SaveChanges();
         }
     }
 }

@@ -25,6 +25,7 @@ namespace DataLayer.Repositories
         public void Create(Olympiad item)
         {
             _context.Olympiads.Add(item);
+            _context.SaveChanges();
         }
 
         public Olympiad Get(int? id)
@@ -37,11 +38,23 @@ namespace DataLayer.Repositories
             Olympiad item = _context.Olympiads.Find(id);
             if (item != null)
                 _context.Olympiads.Remove(item);
+            _context.SaveChanges();
         }
 
         public void Update(Olympiad item)
         {
-            _context.Entry(item).State = EntityState.Modified;
+            Olympiad dbOlympiad = _context.Olympiads.Find(item.OlympiadID);
+            if (dbOlympiad != null)
+            {
+                dbOlympiad.OlympiadName = item.OlympiadName;
+                dbOlympiad.OlympiadLevel = item.OlympiadLevel;
+                dbOlympiad.OlympiadStartDate = item.OlympiadStartDate;
+                dbOlympiad.OlympiadEndDate = item.OlympiadEndDate;
+                dbOlympiad.OlympiadDirection = item.OlympiadDirection;
+                dbOlympiad.OlympiadType = item.OlympiadType;
+                dbOlympiad.UniversityID = item.UniversityID;
+            }
+            _context.SaveChanges();
         }
     }
 }

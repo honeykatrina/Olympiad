@@ -25,6 +25,7 @@ namespace DataLayer.Repositories
         public void Create(Department item)
         {
             _context.Departments.Add(item);
+            _context.SaveChanges();
         }
 
         public Department Get(int? id)
@@ -37,11 +38,17 @@ namespace DataLayer.Repositories
             Department item = _context.Departments.Find(id);
             if (item != null)
                 _context.Departments.Remove(item);
+            _context.SaveChanges();
         }
 
         public void Update(Department item)
         {
-            _context.Entry(item).State = EntityState.Modified;
+            Department dbDepartment = _context.Departments.Find(item.DepartmentID);
+            if (dbDepartment != null)
+            {
+                dbDepartment.DepartmentName = item.DepartmentName;
+            }
+            _context.SaveChanges();
         }
     }
 }

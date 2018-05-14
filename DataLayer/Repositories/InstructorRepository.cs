@@ -25,6 +25,7 @@ namespace DataLayer.Repositories
         public void Create(Instructor item)
         {
             _context.Instructors.Add(item);
+            _context.SaveChanges();
         }
 
         public Instructor Get(int? id)
@@ -37,11 +38,23 @@ namespace DataLayer.Repositories
             Instructor item = _context.Instructors.Find(id);
             if (item != null)
                 _context.Instructors.Remove(item);
+            _context.SaveChanges();
         }
 
         public void Update(Instructor item)
         {
-            _context.Entry(item).State = EntityState.Modified;
+            Instructor dbInstructor = _context.Instructors.Find(item.InstructorID);
+            if (dbInstructor != null)
+            {
+                dbInstructor.InstructorName = item.InstructorName;
+                dbInstructor.InstructorSurname = item.InstructorSurname;
+                dbInstructor.InstructorPatronymic = item.InstructorPatronymic;
+                dbInstructor.InstructorTitle = item.InstructorTitle;
+                dbInstructor.InstructorDegree = item.InstructorDegree;
+                dbInstructor.InstructorPosition = item.InstructorPosition;
+                dbInstructor.DepartmentId = item.DepartmentId;
+            }
+            _context.SaveChanges();
         }
     }
 }

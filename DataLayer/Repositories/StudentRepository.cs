@@ -43,16 +43,16 @@ namespace DataLayer.Repositories
 
         public void Update(Student item)
         {
-            Student dbEntity = _context.Students.Find(item.StudentID);
-            if (dbEntity != null)
+            Student dbStudent = _context.Students.Find(item.StudentID);
+            if (dbStudent != null)
             {
-                dbEntity.StudentName = item.StudentName;
-                dbEntity.StudentSurname = item.StudentSurname;
-                dbEntity.StudentPatronymic = item.StudentPatronymic;
-                dbEntity.Course = item.Course;
-                dbEntity.Group = item.Group;
-                dbEntity.Specialty = item.Specialty;
-                dbEntity.DepartmentId = item.DepartmentId;
+                dbStudent.StudentName = item.StudentName;
+                dbStudent.StudentSurname = item.StudentSurname;
+                dbStudent.StudentPatronymic = item.StudentPatronymic;
+                dbStudent.Course = item.Course;
+                dbStudent.Group = item.Group;
+                dbStudent.Specialty = item.Specialty;
+                dbStudent.DepartmentId = item.DepartmentId;
             }
             _context.SaveChanges();
         }

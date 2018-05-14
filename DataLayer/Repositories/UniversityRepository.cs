@@ -25,6 +25,7 @@ namespace DataLayer.Repositories
         public void Create(University item)
         {
             _context.Universities.Add(item);
+            _context.SaveChanges();
         }
 
         public University Get(int? id)
@@ -37,11 +38,19 @@ namespace DataLayer.Repositories
             University item = _context.Universities.Find(id);
             if (item != null)
                 _context.Universities.Remove(item);
+            _context.SaveChanges();
         }
 
         public void Update(University item)
         {
-            _context.Entry(item).State = EntityState.Modified;
+            University dbUniversity = _context.Universities.Find(item.UniversityID);
+            if (dbUniversity != null)
+            {
+                dbUniversity.UniversityName = item.UniversityName;
+                dbUniversity.City = item.City;
+                dbUniversity.Country = item.Country;
+            }
+            _context.SaveChanges();
         }
     }
 }
