@@ -2,14 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 namespace Olympiad.Models
 {
     public class UniversityViewModel
     {
+        [HiddenInput(DisplayValue = false)]
+        [Display(Name = "Id университета")]
         public int UniversityID { get; set; }
+        [Required]
+        [Display(Name = "Название университета")]
         public string UniversityName { get; set; }
+        [Required]
+        [Display(Name = "Город")]
         public string City { get; set; }
+        [Required]
+        [Display(Name = "Страна")]
         public string Country { get; set; }
     }
 }
