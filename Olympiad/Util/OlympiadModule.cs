@@ -16,6 +16,10 @@ namespace Olympiad.Util
         {
             Bind<IService<StudentDTO>>().To<StudentService>();
             Bind<IService<DepartmentDTO>>().To<DepartmentService>();
+            Bind<IService<TeamDTO>>().To<TeamService>();
+            Bind<IService<InstructorDTO>>().To<InstructorService>();
+            Bind<IService<OlympiadDTO>>().To<OlympiadService>();
+            Bind<IService<UniversityDTO>>().To<UniversityService>();
         }
     }
 }
