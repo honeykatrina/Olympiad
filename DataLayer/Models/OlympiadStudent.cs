@@ -7,6 +7,7 @@ namespace DataLayer.Models
 {
     public class OlympiadStudent
     {
+        public int OlympiadStudentID { get; set; }
         public int OlympiadID { get; set; }
         public int StudentID { get; set; }
         public int StudentPlace { get; set; }

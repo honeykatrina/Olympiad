@@ -9,6 +9,9 @@ namespace Olympiad.Models
     public class OlympiadStudentViewModel
     {
         [HiddenInput(DisplayValue = false)]
+        [Display(Name = "ID записи")]
+        public int OlympiadStudentID { get; set; }
+        [HiddenInput(DisplayValue = false)]
         [Display(Name = "ID олимпиады")]
         public int OlympiadID { get; set; }
         [HiddenInput(DisplayValue = false)]

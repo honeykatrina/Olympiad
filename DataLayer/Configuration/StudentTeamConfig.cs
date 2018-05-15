@@ -11,7 +11,7 @@ namespace DataLayer.Configuration
     {
         public StudentTeamConfig()
         {
-            HasKey(x => new { x.StudentID, x.TeamID });
+            HasKey(x => new { x.StudentTeamID});
             ToTable("StudentTeams");
 
             HasRequired(x => x.Student)

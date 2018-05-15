@@ -11,7 +11,7 @@ namespace DataLayer.Configuration
     {
         public OlympTeamConfig()
         {
-            HasKey(x => new { x.OlympiadID, x.TeamID });
+            HasKey(x => new { x.OlympiadTeamID });
             ToTable("OlympiadTeams");
 
             HasRequired(x => x.Olympiad)

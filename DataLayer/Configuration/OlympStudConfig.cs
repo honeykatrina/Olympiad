@@ -11,7 +11,7 @@ namespace DataLayer.Configuration
     {
         public OlympStudConfig()
         {
-            HasKey(x => new { x.OlympiadID, x.StudentID });
+            HasKey(x => new { x.OlympiadStudentID });
             ToTable("OlympiadStudents");
 
             HasRequired(x => x.Olympiad)

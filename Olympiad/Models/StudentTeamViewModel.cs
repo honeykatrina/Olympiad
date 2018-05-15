@@ -9,6 +9,9 @@ namespace Olympiad.Models
     public class StudentTeamViewModel
     {
         [HiddenInput(DisplayValue = false)]
+        [Display(Name = "ID записи")]
+        public int StudentTeamID { get; set; }
+        [HiddenInput(DisplayValue = false)]
         [Display(Name = "ID студента")]
         public int StudentID { get; set; }
         [HiddenInput(DisplayValue = false)]

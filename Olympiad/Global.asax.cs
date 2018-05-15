@@ -46,6 +46,12 @@ namespace Olympiad
                 cfg.CreateMap<UniversityViewModel, UniversityDTO>();
                 cfg.CreateMap<DataLayer.Models.Team, TeamDTO>(); //???
                 cfg.CreateMap<TeamViewModel, TeamDTO>();
+                cfg.CreateMap<StudentTeam, StudentTeamDTO>();
+                cfg.CreateMap<StudentTeamViewModel, StudentTeamDTO>();
+                cfg.CreateMap<OlympiadTeam, OlympiadTeamDTO>();
+                cfg.CreateMap<OlympiadTeamViewModel, OlympiadTeamDTO>();
+                cfg.CreateMap<OlympiadStudent, OlympiadStudentDTO>();
+                cfg.CreateMap<OlympiadStudentViewModel, OlympiadStudentDTO>();
             });
         }
     }

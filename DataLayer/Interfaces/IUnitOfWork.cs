@@ -15,6 +15,9 @@ namespace DataLayer.Interfaces
         IRepository<Student> Students { get; }
         IRepository<Team> Teams { get; }
         IRepository<University> Universities { get; }
+        IRepository<OlympiadStudent> OlympiadStudents { get; }
+        IRepository<OlympiadTeam> OlympiadTeams { get; }
+        IRepository<StudentTeam> StudentTeams { get; }
         void Save();
     }
 }

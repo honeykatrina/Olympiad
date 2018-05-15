@@ -188,6 +188,9 @@
     <Compile Include="Repositories\DepartmentRepository.cs" />
     <Compile Include="Repositories\InstructorRepository.cs" />
     <Compile Include="Repositories\OlympiadRepository.cs" />
+    <Compile Include="Repositories\OlympiadStudentRepository.cs" />
+    <Compile Include="Repositories\OlympiadTeamRepository.cs" />
+    <Compile Include="Repositories\StudentTeamRepository.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Repositories\UniversityRepository.cs" />
