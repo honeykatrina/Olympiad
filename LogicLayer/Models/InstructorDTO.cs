@@ -15,5 +15,7 @@ namespace LogicLayer.Models
         public string InstructorDegree { get; set; }
         public string InstructorPosition { get; set; }
         public int DepartmentId { get; set; }
+
+        public DepartmentDTO Department { get; set; }
     }
 }

@@ -13,10 +13,12 @@ namespace Team.Controllers
     public class TeamController : Controller
     {
         private IService<TeamDTO> _teamService;
+        private IService<StudentDTO> _studentService;
 
-        public TeamController(IService<TeamDTO> teamService)
+        public TeamController(IService<TeamDTO> teamService, IService<StudentDTO> studService)
         {
             _teamService = teamService;
+            _studentService = studService;
         }
         //
         // GET: /Team/
@@ -31,6 +33,18 @@ namespace Team.Controllers
         // GET: /Team/Create
         public ActionResult Create()
         {
+            var allStudents = _studentService.GetItems();
+            var items = new List<SelectListItem>();
+
+            foreach (var st in allStudents)
+            {
+                items.Add(new SelectListItem()
+                {
+                    Text = st.StudentName,
+                    Value = st.StudentID.ToString()
+                });
+            }
+            ViewBag.Students = items;
             return View();
         }
 

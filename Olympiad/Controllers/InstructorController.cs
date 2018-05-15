@@ -56,7 +56,13 @@ namespace Olympiad.Controllers
             _instructorService.AddNewItem(new InstructorDTO()
             {
                 InstructorID = instructor.InstructorID,
-                InstructorName = instructor.InstructorName
+                InstructorName = instructor.InstructorName,
+                InstructorSurname = instructor.InstructorSurname,
+                InstructorPatronymic = instructor.InstructorPatronymic,
+                InstructorTitle = instructor.InstructorTitle,
+                InstructorDegree = instructor.InstructorDegree,
+                InstructorPosition = instructor.InstructorPosition,
+                DepartmentId = instructor.DepartmentId
             });
 
             return RedirectToAction("Index");
@@ -92,8 +98,14 @@ namespace Olympiad.Controllers
             _instructorService.UpdateItem(new InstructorDTO()
             {
                 InstructorID = instructor.InstructorID,
-                InstructorName = instructor.InstructorName
-            });
+                InstructorName = instructor.InstructorName,
+                InstructorSurname = instructor.InstructorSurname,
+                InstructorPatronymic = instructor.InstructorPatronymic,
+                InstructorTitle = instructor.InstructorTitle,
+                InstructorDegree = instructor.InstructorDegree,
+                InstructorPosition =instructor.InstructorPosition,
+                DepartmentId =instructor.DepartmentId
+    });
             return RedirectToAction("Index");
         }
 

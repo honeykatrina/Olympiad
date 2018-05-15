@@ -299,14 +299,23 @@
     <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Instructor\Create.cshtml" />
+    <Content Include="Views\Instructor\Index.cshtml" />
+    <Content Include="Views\Instructor\Edit.cshtml" />
+    <Content Include="Views\Instructor\Delete.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\University\Index.cshtml" />
+    <Content Include="Views\University\Create.cshtml" />
+    <Content Include="Views\University\Edit.cshtml" />
+    <Content Include="Views\University\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Department\" />
-    <Folder Include="Views\Instructor\" />
     <Folder Include="Views\Olympiad\" />
     <Folder Include="Views\Team\" />
-    <Folder Include="Views\University\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

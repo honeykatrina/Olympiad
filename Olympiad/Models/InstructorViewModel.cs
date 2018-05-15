@@ -32,5 +32,7 @@ namespace Olympiad.Models
         public string InstructorPosition { get; set; }
 
         public int DepartmentId { get; set; }
+
+        public DepartmentViewModel Department { get; set; }
     }
 }

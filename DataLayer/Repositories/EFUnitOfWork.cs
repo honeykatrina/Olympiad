@@ -17,6 +17,9 @@ namespace DataLayer.Repositories
         private StudentRepository _studentRepository;
         private TeamRepository _teamRepository;
         private UniversityRepository _universityRepository;
+        private OlympiadStudentRepository _olympiadStudentsRepository;
+        private OlympiadTeamRepository _olympiadTeamsRepository;
+        private StudentTeamRepository _studentTeamsRepository;
 
         public EFUnitOfWork(string connectionString)
         {
@@ -80,6 +83,36 @@ namespace DataLayer.Repositories
                     _universityRepository = new UniversityRepository(_context);
                 return _universityRepository;
             } 
+        }
+
+        public IRepository<OlympiadStudent> OlympiadStudents
+        {
+            get
+            {
+                if (_olympiadStudentsRepository == null)
+                    _olympiadStudentsRepository = new OlympiadStudentRepository(_context);
+                return _olympiadStudentsRepository;
+            }
+        }
+
+        public IRepository<OlympiadTeam> OlympiadTeams
+        {
+            get
+            {
+                if (_olympiadTeamsRepository == null)
+                    _olympiadTeamsRepository = new OlympiadTeamRepository(_context);
+                return _olympiadTeamsRepository;
+            }
+        }
+
+        public IRepository<StudentTeam> StudentTeams
+        {
+            get
+            {
+                if (_studentTeamsRepository == null)
+                    _studentTeamsRepository = new StudentTeamRepository(_context);
+                return _studentTeamsRepository;
+            }
         }
 
         public void Save()
