@@ -1,0 +1,49 @@
+﻿@model Olympiad.Models.StudentTeamViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>StudentViewModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StudentTeamID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StudentTeamID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Team.TeamName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.TeamID, new SelectList(ViewBag.Teams, "Value", "Text", 1))
+                @Html.ValidationMessageFor(model => model.Team.TeamName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Студент", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.StudentID, new SelectList(ViewBag.Students, "Value", "Text", 1))
+                @Html.ValidationMessageFor(model => model.Student.StudentSurname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

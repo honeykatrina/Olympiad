@@ -96,7 +96,8 @@ namespace DataLayer.Context
 
             var studentteams = new List<StudentTeam>
             {
-                new StudentTeam { StudentTeamID = 1, TeamID = 1, StudentID = 1}
+                new StudentTeam { StudentTeamID = 1, TeamID = 1, StudentID = 1},
+                new StudentTeam { StudentTeamID = 2, TeamID = 1, StudentID = 2}
             };
             studentteams.ForEach(s => context.StudentTeams.Add(s));
             context.SaveChanges();

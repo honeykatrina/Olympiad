@@ -14,9 +14,5 @@ namespace Olympiad.Models
         [Required]
         [Display(Name = "Название команды")]
         public string TeamName { get; set; }
-
-        public int StudentId { get; set; }
-
-        public StudentViewModel Student { get; set; }
     }
 }

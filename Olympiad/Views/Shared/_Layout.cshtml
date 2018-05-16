@@ -18,7 +18,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Олимпиады по программированию", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @*Html.ActionLink("Олимпиады по программированию", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -26,9 +27,10 @@
                     <li>@Html.ActionLink("Олимпиады", "Index", "Olympiad")</li>
                     <li>@Html.ActionLink("Университеты", "Index", "University")</li>
                     <li>@Html.ActionLink("Студенты", "Index", "Student")</li>
-                    <li>@Html.ActionLink("Команды", "Index", "StudentTeam")</li>
+                    <li>@Html.ActionLink("Команды", "Index", "Team")</li>
                     <li>@Html.ActionLink("Преподаватели", "Index", "Instructor")</li>
                     <li>@Html.ActionLink("Кафедры", "Index", "Department")</li>
+                    <li>@Html.ActionLink("Команды со студентами", "Index", "StudentTeam")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

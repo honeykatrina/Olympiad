@@ -23,7 +23,7 @@ namespace Olympiad.Controllers
             _studentService = studService;
         }
         //
-        // GET: /Team/
+        // GET: /StudentTeam/
         public ActionResult Index()
         {
             IEnumerable<StudentTeamDTO> studentTeamDtos = _studentTeamService.GetItems();
@@ -32,83 +32,111 @@ namespace Olympiad.Controllers
         }
 
         //
-        // GET: /Team/Create
+        // GET: /StudentTeam/Create
         public ActionResult Create()
         {
             var allStudents = _studentService.GetItems();
-            var items = new List<SelectListItem>();
+            var itemsStudents = new List<SelectListItem>();
 
             foreach (var st in allStudents)
             {
-                items.Add(new SelectListItem()
+                itemsStudents.Add(new SelectListItem()
                 {
                     Text = st.StudentName,
                     Value = st.StudentID.ToString()
                 });
             }
-            ViewBag.Students = items;
+            ViewBag.Students = itemsStudents;
+
+            var allTeams = _teamService.GetItems();
+            var itemsTeams = new List<SelectListItem>();
+
+            foreach (var st in allTeams)
+            {
+                itemsTeams.Add(new SelectListItem()
+                {
+                    Text = st.TeamName,
+                    Value = st.TeamID.ToString()
+                });
+            }
+            ViewBag.Teams = itemsTeams;
             return View();
         }
 
         //
-        // POST: /Team/Create
+        // POST: /StudentTeam/Create
         [HttpPost]
         public ActionResult Create(StudentTeamViewModel studentTeam)
         {
-            //if(_studentTeamService.GetItem(studentTeam.StudentTeamID).TeamID != studentTeam.TeamID &&
-            //    _studentTeamService.GetItem(studentTeam.StudentTeamID).StudentID != studentTeam.StudentID)
-            //{
-                _teamService.AddNewItem(new TeamDTO()
-                {
-                    TeamID = studentTeam.Team.TeamID,
-                    TeamName = studentTeam.Team.TeamName
-                });
-                _studentTeamService.AddNewItem(new StudentTeamDTO()
+            _studentTeamService.AddNewItem(new StudentTeamDTO()
                 {
                     StudentTeamID = studentTeam.StudentTeamID,
-                    StudentID = studentTeam.Student.StudentID,
-                    TeamID = studentTeam.Team.TeamID
+                    StudentID = studentTeam.StudentID,
+                    TeamID = studentTeam.TeamID
                 });
-            //}
             
             return RedirectToAction("Index");
         }
 
         //
-        // GET: /Team/Edit/5
+        // GET: /StudentTeam/Edit/5
         public ActionResult Edit(int id)
         {
-            //TeamDTO teamDto = _teamService.GetItem(id);
-            //var team = Mapper.Map<TeamDTO, TeamViewModel>(teamDto);
-            //return View(team);
-            return View();
+            StudentTeamDTO studentTeamDto = _studentTeamService.GetItem(id);
+            var studentTeam = Mapper.Map<StudentTeamDTO, StudentTeamViewModel>(studentTeamDto);
+            var allStudents = _studentService.GetItems();
+            var itemsStudents = new List<SelectListItem>();
+
+            foreach (var st in allStudents)
+            {
+                itemsStudents.Add(new SelectListItem()
+                {
+                    Text = st.StudentName,
+                    Value = st.StudentID.ToString()
+                });
+            }
+            ViewBag.Students = itemsStudents;
+
+            var allTeams = _teamService.GetItems();
+            var itemsTeams = new List<SelectListItem>();
+
+            foreach (var st in allTeams)
+            {
+                itemsTeams.Add(new SelectListItem()
+                {
+                    Text = st.TeamName,
+                    Value = st.TeamID.ToString()
+                });
+            }
+            ViewBag.Teams = itemsTeams;
+            return View(studentTeam);
         }
 
         //
-        // POST: /Team/Edit/5
+        // POST: /StudentTeam/Edit/5
         [HttpPost]
-        public ActionResult Edit(TeamViewModel team)
+        public ActionResult Edit(StudentTeamViewModel studentTeam)
         {
-            //_teamService.UpdateItem(new TeamDTO()
-            //{
-            //    TeamID = team.TeamID,
-            //    TeamName = team.TeamName
-            //});
+            _studentTeamService.UpdateItem(new StudentTeamDTO()
+            {
+                StudentTeamID = studentTeam.StudentTeamID,
+                 StudentID = studentTeam.StudentID,
+                 TeamID = studentTeam.TeamID
+            });
             return RedirectToAction("Index");
         }
 
         //
-        // GET: /Team/Delete/5
+        // GET: /StudentTeam/Delete/5
         public ActionResult Delete(int? id)
         {
-            //TeamDTO teamDto = _teamService.GetItem(id);
-            //var team = Mapper.Map<TeamDTO, TeamViewModel>(teamDto);
-            //return View(team);
-            return View();
+            StudentTeamDTO studentTeamDto = _studentTeamService.GetItem(id);
+            var studentTeam = Mapper.Map<StudentTeamDTO, StudentTeamViewModel>(studentTeamDto);
+            return View(studentTeam);
         }
 
         //
-        // POST: /Team/Delete/5
+        // POST: /StudentTeam/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

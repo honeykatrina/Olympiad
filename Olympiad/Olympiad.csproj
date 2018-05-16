@@ -218,6 +218,7 @@
     <Compile Include="Controllers\OlympiadController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\StudentTeamController.cs" />
+    <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Controllers\UniversityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -313,6 +314,12 @@
     <Content Include="Views\University\Delete.cshtml" />
     <Content Include="Views\StudentTeam\Index.cshtml" />
     <Content Include="Views\StudentTeam\Create.cshtml" />
+    <Content Include="Views\Team\Index.cshtml" />
+    <Content Include="Views\Team\Edit.cshtml" />
+    <Content Include="Views\Team\Delete.cshtml" />
+    <Content Include="Views\Team\Create.cshtml" />
+    <Content Include="Views\StudentTeam\Edit.cshtml" />
+    <Content Include="Views\StudentTeam\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
