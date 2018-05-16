@@ -19,7 +19,7 @@ namespace DataLayer.Repositories
 
         public IEnumerable<StudentTeam> GetAll()
         {
-            return _context.StudentTeams.Include(x => x.Team).Include(x => x.Student);
+            return _context.StudentTeams.Include(x => x.Team).Include(x => x.Student).ToList();
         }
 
         public void Create(StudentTeam item)

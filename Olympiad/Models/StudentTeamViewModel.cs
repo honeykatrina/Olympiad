@@ -17,5 +17,8 @@ namespace Olympiad.Models
         [HiddenInput(DisplayValue = false)]
         [Display(Name = "ID команды")]
         public int TeamID { get; set; }
+
+        public StudentViewModel Student { get; set; }
+        public TeamViewModel Team { get; set; }
     }
 }

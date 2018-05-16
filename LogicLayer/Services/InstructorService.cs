@@ -52,7 +52,6 @@ namespace LogicLayer.Services
         public InstructorDTO GetItem(int? id)
         {
             Instructor instructor = _database.Instructors.Get(id);
-            //return Mapper.Map<Student, StudentDTO>(student);
             return new InstructorDTO
             {
                 InstructorID = instructor.InstructorID,

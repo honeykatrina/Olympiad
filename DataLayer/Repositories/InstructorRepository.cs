@@ -19,7 +19,7 @@ namespace DataLayer.Repositories
 
         public IEnumerable<Instructor> GetAll()
         {
-            return _context.Instructors;
+            return _context.Instructors.ToList();
         }
 
         public void Create(Instructor item)

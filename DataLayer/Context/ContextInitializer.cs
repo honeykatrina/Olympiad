@@ -7,7 +7,7 @@ using DataLayer.Models;
 
 namespace DataLayer.Context
 {
-    public class ContextInitializer: CreateDatabaseIfNotExists<OlympiadContext> //DropCreateDatabaseAlways<OlympiadContext>
+    public class ContextInitializer: DropCreateDatabaseAlways<OlympiadContext>//CreateDatabaseIfNotExists<OlympiadContext> //DropCreateDatabaseAlways<OlympiadContext>
     {
         protected override void Seed(OlympiadContext context)
         {
@@ -94,16 +94,13 @@ namespace DataLayer.Context
             //olympiadteams.ForEach(s => context.OlympiadTeams.Add(s));
             //context.SaveChanges();
 
-            //var studentteams = new List<StudentTeam>
-            //{
-            //    new StudentTeam { TeamID = 1, StudentID = 1},
-            //    new StudentTeam { TeamID = 1, StudentID = 2},
-            //    new StudentTeam { TeamID = 2, StudentID = 3},
-            //    new StudentTeam { TeamID = 2, StudentID = 4}
-            //};
-            //studentteams.ForEach(s => context.StudentTeams.Add(s));
-            //context.SaveChanges();
-            
+            var studentteams = new List<StudentTeam>
+            {
+                new StudentTeam { StudentTeamID = 1, TeamID = 1, StudentID = 1}
+            };
+            studentteams.ForEach(s => context.StudentTeams.Add(s));
+            context.SaveChanges();
+
         }
     }
 }

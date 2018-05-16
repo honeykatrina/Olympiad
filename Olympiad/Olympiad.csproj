@@ -217,7 +217,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OlympiadController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
-    <Compile Include="Controllers\TeamController.cs" />
+    <Compile Include="Controllers\StudentTeamController.cs" />
     <Compile Include="Controllers\UniversityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -311,11 +311,12 @@
     <Content Include="Views\University\Create.cshtml" />
     <Content Include="Views\University\Edit.cshtml" />
     <Content Include="Views\University\Delete.cshtml" />
+    <Content Include="Views\StudentTeam\Index.cshtml" />
+    <Content Include="Views\StudentTeam\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Olympiad\" />
-    <Folder Include="Views\Team\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
