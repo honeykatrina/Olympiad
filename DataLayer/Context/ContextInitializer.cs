@@ -69,9 +69,9 @@ namespace DataLayer.Context
 
             var olympiadstudents = new List<OlympiadStudent>
             {
-                new OlympiadStudent { OlympiadStudentID = 1, StudentID = 1, InstructorID = 1, OlympiadID = 1, StudentPlace = 2},
-                new OlympiadStudent { OlympiadStudentID = 2, StudentID = 2, InstructorID = 1, OlympiadID = 1, StudentPlace = 1},
-                new OlympiadStudent { OlympiadStudentID = 3, StudentID = 3, InstructorID = 2, OlympiadID = 2, StudentPlace = 10}
+                new OlympiadStudent { OlympiadStudentID = 1, StudentID = 1, InstructorID = 1, OlympiadID = 1, StudentPlace = 2, Prize = Prize.Диплом},
+                new OlympiadStudent { OlympiadStudentID = 2, StudentID = 2, InstructorID = 1, OlympiadID = 1, StudentPlace = 1, Prize = Prize.Грамота},
+                new OlympiadStudent { OlympiadStudentID = 3, StudentID = 3, InstructorID = 2, OlympiadID = 2, StudentPlace = 10, Prize = Prize.Диплом}
             };
             olympiadstudents.ForEach(s => context.OlympiadStudents.Add(s));
             context.SaveChanges();
@@ -88,8 +88,8 @@ namespace DataLayer.Context
 
             var olympiadteams = new List<OlympiadTeam>
             {
-                new OlympiadTeam { OlympiadTeamID = 1, OlympiadID = 1, InstructorID = 1, TeamID = 1, TeamPlace = 3},
-                new OlympiadTeam { OlympiadTeamID = 2, OlympiadID = 2, InstructorID = 2, TeamID = 2, TeamPlace = 1 }
+                new OlympiadTeam { OlympiadTeamID = 1, OlympiadID = 1, InstructorID = 1, TeamID = 1, TeamPlace = 3, Prize = Prize.Диплом},
+                new OlympiadTeam { OlympiadTeamID = 2, OlympiadID = 2, InstructorID = 2, TeamID = 2, TeamPlace = 1, Prize = Prize.Сертификат}
             };
             olympiadteams.ForEach(s => context.OlympiadTeams.Add(s));
             context.SaveChanges();

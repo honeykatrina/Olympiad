@@ -50,6 +50,7 @@ namespace DataLayer.Repositories
                 dbOlympiadTeam.InstructorID = item.InstructorID;
                 dbOlympiadTeam.OlympiadID= item.OlympiadID;
                 dbOlympiadTeam.TeamPlace = item.TeamPlace;
+                dbOlympiadTeam.Prize = item.Prize;
             }
             _context.SaveChanges();
         }

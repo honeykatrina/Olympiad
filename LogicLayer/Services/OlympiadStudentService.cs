@@ -27,7 +27,8 @@ namespace LogicLayer.Services
                 StudentID = item.StudentID,
                 OlympiadID = item.OlympiadID,
                 StudentPlace = item.StudentPlace,
-                InstructorID = item.InstructorID
+                InstructorID = item.InstructorID,
+                Prize = item.Prize
             };
 
             _database.OlympiadStudents.Create(olympiadStudent);
@@ -55,7 +56,8 @@ namespace LogicLayer.Services
                 StudentID = olympiadStudent.StudentID,
                 OlympiadID = olympiadStudent.OlympiadID,
                 StudentPlace = olympiadStudent.StudentPlace,
-                InstructorID = olympiadStudent.InstructorID
+                InstructorID = olympiadStudent.InstructorID,
+                Prize = olympiadStudent.Prize
             };
         }
 
@@ -72,7 +74,8 @@ namespace LogicLayer.Services
                 StudentID = item.StudentID,
                 OlympiadID = item.OlympiadID,
                 StudentPlace = item.StudentPlace,
-                InstructorID = item.InstructorID
+                InstructorID = item.InstructorID,
+                Prize = item.Prize
             };
             _database.OlympiadStudents.Update(olympiadStudent);
             _database.Save();

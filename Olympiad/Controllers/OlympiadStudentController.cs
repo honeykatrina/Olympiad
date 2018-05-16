@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using AutoMapper;
 using LogicLayer.Interfaces;
 using LogicLayer.Models;
@@ -75,6 +76,8 @@ namespace Olympiad.Controllers
                 });
             }
             ViewBag.Instructors = itemsInstructors;
+
+
             return View();
         }
 
@@ -89,7 +92,8 @@ namespace Olympiad.Controllers
                     OlympiadID = olympiadStudent.OlympiadID,
                     StudentID = olympiadStudent.StudentID,
                     InstructorID = olympiadStudent.InstructorID,
-                    StudentPlace = olympiadStudent.StudentPlace
+                    StudentPlace = olympiadStudent.StudentPlace,
+                    Prize = olympiadStudent.Prize
                 });
             
             return RedirectToAction("Index");
@@ -153,7 +157,8 @@ namespace Olympiad.Controllers
                 OlympiadID = olympiadStudent.OlympiadID,
                 StudentID = olympiadStudent.StudentID,
                 InstructorID = olympiadStudent.InstructorID,
-                StudentPlace = olympiadStudent.StudentPlace
+                StudentPlace = olympiadStudent.StudentPlace,
+                Prize = olympiadStudent.Prize
             });
             return RedirectToAction("Index");
         }

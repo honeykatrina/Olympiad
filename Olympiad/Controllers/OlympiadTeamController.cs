@@ -89,7 +89,8 @@ namespace Olympiad.Controllers
                     OlympiadID = olympiadTeam.OlympiadID,
                     TeamID = olympiadTeam.TeamID,
                     InstructorID = olympiadTeam.InstructorID,
-                    TeamPlace = olympiadTeam.TeamPlace
+                    TeamPlace = olympiadTeam.TeamPlace,
+                    Prize = olympiadTeam.Prize
                 });
             
             return RedirectToAction("Index");
@@ -153,7 +154,8 @@ namespace Olympiad.Controllers
                 OlympiadID = olympiadTeam.OlympiadID,
                 TeamID = olympiadTeam.TeamID,
                 InstructorID = olympiadTeam.InstructorID,
-                TeamPlace = olympiadTeam.TeamPlace
+                TeamPlace = olympiadTeam.TeamPlace,
+                Prize = olympiadTeam.Prize
             });
             return RedirectToAction("Index");
         }

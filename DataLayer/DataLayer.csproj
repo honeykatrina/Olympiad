@@ -179,6 +179,7 @@
     <Compile Include="Models\Olympiad.cs" />
     <Compile Include="Models\OlympiadStudent.cs" />
     <Compile Include="Models\OlympiadTeam.cs" />
+    <Compile Include="Models\Prize.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentTeam.cs" />
     <Compile Include="Models\Team.cs" />

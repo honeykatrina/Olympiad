@@ -23,6 +23,8 @@ namespace Olympiad.Models
         [HiddenInput(DisplayValue = false)]
         [Display(Name = "Преподаватель")]
         public int InstructorID { get; set; }
+        [Display(Name = "Награда")]
+        public Prize Prize { get; set; }
 
         public OlympiadViewModel Olympiad { get; set; }
         public TeamViewModel Team { get; set; }

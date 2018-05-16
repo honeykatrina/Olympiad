@@ -47,6 +47,18 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Prize, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    IList<SelectListItem> list = Enum.GetValues(typeof(Prize)).Cast<Prize>().Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString() }).ToList();
+                    SelectList data = new SelectList(list, "Value", "Text");
+                }
+                @Html.DropDownListFor(model => model.Prize, data)
+                @Html.ValidationMessageFor(model => model.Prize)
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.InstructorID, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.InstructorID, new SelectList(ViewBag.Instructors, "Value", "Text", 1))
