@@ -5,6 +5,9 @@ using System.Web;
 using DataLayer.Context;
 using DataLayer.Interfaces;
 using DataLayer.Models;
+using DataLayer.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Threading.Tasks;
 
 namespace DataLayer.Repositories
 {
@@ -20,11 +23,38 @@ namespace DataLayer.Repositories
         private OlympiadStudentRepository _olympiadStudentsRepository;
         private OlympiadTeamRepository _olympiadTeamsRepository;
         private StudentTeamRepository _studentTeamsRepository;
+        private ApplicationUserManager _userManager;
+        private ApplicationRoleManager _roleManager;
+        private IClientManager _clientManager;
 
         public EFUnitOfWork(string connectionString)
         {
             _context = new OlympiadContext(connectionString);
+            _userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(_context));
+            _roleManager = new ApplicationRoleManager(new RoleStore<ApplicationRole>(_context));
+            _clientManager = new ClientManagerReposiroty(_context);
         }
+
+        public ApplicationUserManager UserManager
+        {
+            get { return _userManager; }
+        }
+
+        public IClientManager ClientManager
+        {
+            get { return _clientManager; }
+        }
+
+        public ApplicationRoleManager RoleManager
+        {
+            get { return _roleManager; }
+        }
+
+        public async Task SaveAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
         public IRepository<Department> Departments
         {
             get

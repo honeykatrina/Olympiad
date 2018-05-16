@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer.Models;
+using DataLayer.Identity;
 
 namespace DataLayer.Interfaces
 {
@@ -18,6 +19,10 @@ namespace DataLayer.Interfaces
         IRepository<OlympiadStudent> OlympiadStudents { get; }
         IRepository<OlympiadTeam> OlympiadTeams { get; }
         IRepository<StudentTeam> StudentTeams { get; }
+        ApplicationUserManager UserManager { get; }
+        IClientManager ClientManager { get; }
+        ApplicationRoleManager RoleManager { get; }
+        Task SaveAsync();
         void Save();
     }
 }

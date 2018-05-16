@@ -9,7 +9,7 @@ using DataLayer.Configuration;
 
 namespace DataLayer.Context
 {
-    public class OlympiadContext: DbContext//IdentityDbContext<ApplicationUser>
+    public class OlympiadContext: IdentityDbContext<ApplicationUser>
     {
         static OlympiadContext()
         {
@@ -30,7 +30,7 @@ namespace DataLayer.Context
         public DbSet<StudentTeam> StudentTeams { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<University> Universities { get; set; }
-       // public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ClientProfile> ClientProfiles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -43,6 +43,7 @@ namespace DataLayer.Context
             modelBuilder.Configurations.Add(new StudentTeamConfig());
             modelBuilder.Configurations.Add(new TeamConfig());
             modelBuilder.Configurations.Add(new UniversityConfig());
+            modelBuilder.Configurations.Add(new ClientProfileConfig());
 
         }
 }
