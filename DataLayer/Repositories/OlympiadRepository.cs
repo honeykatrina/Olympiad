@@ -19,7 +19,7 @@ namespace DataLayer.Repositories
 
         public IEnumerable<Olympiad> GetAll()
         {
-            return _context.Olympiads;
+            return _context.Olympiads.ToList();
         }
 
         public void Create(Olympiad item)

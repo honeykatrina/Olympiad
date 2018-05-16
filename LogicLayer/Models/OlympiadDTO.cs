@@ -15,5 +15,7 @@ namespace LogicLayer.Models
         public string OlympiadDirection { get; set; }
         public string OlympiadType { get; set; }
         public int UniversityID { get; set; }
+
+        public UniversityDTO University { get; set; }
     }
 }

@@ -330,10 +330,13 @@
     <Content Include="Views\OlympiadStudent\Delete.cshtml" />
     <Content Include="Views\OlympiadStudent\Edit.cshtml" />
     <Content Include="Views\OlympiadStudent\Index.cshtml" />
+    <Content Include="Views\Olympiad\Index.cshtml" />
+    <Content Include="Views\Olympiad\Edit.cshtml" />
+    <Content Include="Views\Olympiad\Delete.cshtml" />
+    <Content Include="Views\Olympiad\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Olympiad\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

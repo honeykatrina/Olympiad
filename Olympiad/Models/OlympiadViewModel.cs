@@ -29,7 +29,9 @@ namespace Olympiad.Models
         [Required]
         [Display(Name = "Тип")]
         public string OlympiadType { get; set; }
-
+        [Display(Name = "Университет")]
         public int UniversityID { get; set; }
+
+        public UniversityViewModel University { get; set; }
     }
 }
