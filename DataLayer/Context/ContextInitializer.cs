@@ -67,14 +67,14 @@ namespace DataLayer.Context
             olympiads.ForEach(s => context.Olympiads.Add(s));
             context.SaveChanges();
 
-            //var olympiadstudents = new List<OlympiadStudent>
-            //{
-            //    new OlympiadStudent { StudentID = 1, InstructorID = 1, OlympiadID = 1, StudentPlace = 2},
-            //    new OlympiadStudent { StudentID = 2, InstructorID = 1, OlympiadID = 1, StudentPlace = 1},
-            //    new OlympiadStudent { StudentID = 3, InstructorID = 2, OlympiadID = 2, StudentPlace = 10}
-            //};
-            //olympiadstudents.ForEach(s => context.OlympiadStudents.Add(s));
-            //context.SaveChanges();
+            var olympiadstudents = new List<OlympiadStudent>
+            {
+                new OlympiadStudent { OlympiadStudentID = 1, StudentID = 1, InstructorID = 1, OlympiadID = 1, StudentPlace = 2},
+                new OlympiadStudent { OlympiadStudentID = 2, StudentID = 2, InstructorID = 1, OlympiadID = 1, StudentPlace = 1},
+                new OlympiadStudent { OlympiadStudentID = 3, StudentID = 3, InstructorID = 2, OlympiadID = 2, StudentPlace = 10}
+            };
+            olympiadstudents.ForEach(s => context.OlympiadStudents.Add(s));
+            context.SaveChanges();
 
 
             var teams = new List<Team>
@@ -86,18 +86,19 @@ namespace DataLayer.Context
             context.SaveChanges();
 
 
-            //var olympiadteams = new List<OlympiadTeam>
-            //{
-            //    new OlympiadTeam { OlympiadID = 223, InstructorID = 1, TeamID = 1, TeamPlace = 3},
-            //    new OlympiadTeam { OlympiadID = 224, InstructorID = 2, TeamID = 2, TeamPlace = 1 }
-            //};
-            //olympiadteams.ForEach(s => context.OlympiadTeams.Add(s));
-            //context.SaveChanges();
+            var olympiadteams = new List<OlympiadTeam>
+            {
+                new OlympiadTeam { OlympiadTeamID = 1, OlympiadID = 1, InstructorID = 1, TeamID = 1, TeamPlace = 3},
+                new OlympiadTeam { OlympiadTeamID = 2, OlympiadID = 2, InstructorID = 2, TeamID = 2, TeamPlace = 1 }
+            };
+            olympiadteams.ForEach(s => context.OlympiadTeams.Add(s));
+            context.SaveChanges();
 
             var studentteams = new List<StudentTeam>
             {
                 new StudentTeam { StudentTeamID = 1, TeamID = 1, StudentID = 1},
-                new StudentTeam { StudentTeamID = 2, TeamID = 1, StudentID = 2}
+                new StudentTeam { StudentTeamID = 2, TeamID = 2, StudentID = 2},
+                new StudentTeam { StudentTeamID = 3, TeamID = 2, StudentID = 1}
             };
             studentteams.ForEach(s => context.StudentTeams.Add(s));
             context.SaveChanges();

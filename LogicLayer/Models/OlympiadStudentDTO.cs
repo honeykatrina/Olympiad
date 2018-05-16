@@ -12,5 +12,9 @@ namespace LogicLayer.Models
         public int StudentID { get; set; }
         public int StudentPlace { get; set; }
         public int InstructorID { get; set; }
+
+        public OlympiadDTO Olympiad { get; set; }
+        public StudentDTO Student { get; set; }
+        public InstructorDTO Instructor { get; set; }
     }
 }

@@ -16,12 +16,12 @@ namespace DataLayer.Configuration
 
             HasRequired(x => x.Olympiad)
                 .WithMany(x => x.Students)
-                .HasForeignKey(x => x.StudentID)
+                .HasForeignKey(x => x.OlympiadID)
                 .WillCascadeOnDelete(false);
 
             HasRequired(x => x.Student)
                 .WithMany(x => x.Olympiads)
-                .HasForeignKey(x => x.OlympiadID)
+                .HasForeignKey(x => x.StudentID)
                 .WillCascadeOnDelete(false);
 
 

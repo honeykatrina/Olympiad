@@ -12,16 +12,20 @@ namespace Olympiad.Models
         [Display(Name = "ID записи")]
         public int OlympiadTeamID { get; set; }
         [HiddenInput(DisplayValue = false)]
-        [Display(Name = "ID олимпиады")]
+        [Display(Name = "Олимпиада")]
         public int OlympiadID { get; set; }
         [HiddenInput(DisplayValue = false)]
-        [Display(Name = "ID команды")]
+        [Display(Name = "Команда")]
         public int TeamID { get; set; }
         [Required]
         [Display(Name = "Занятое место")]
         public int TeamPlace { get; set; }
         [HiddenInput(DisplayValue = false)]
-        [Display(Name = "ID преподавателя")]
+        [Display(Name = "Преподаватель")]
         public int InstructorID { get; set; }
+
+        public OlympiadViewModel Olympiad { get; set; }
+        public TeamViewModel Team { get; set; }
+        public InstructorViewModel Instructor { get; set; }
     }
 }

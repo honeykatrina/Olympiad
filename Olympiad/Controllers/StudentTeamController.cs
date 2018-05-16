@@ -42,7 +42,7 @@ namespace Olympiad.Controllers
             {
                 itemsStudents.Add(new SelectListItem()
                 {
-                    Text = st.StudentName,
+                    Text = st.StudentSurname,
                     Value = st.StudentID.ToString()
                 });
             }

@@ -216,6 +216,8 @@
     <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OlympiadController.cs" />
+    <Compile Include="Controllers\OlympiadStudentController.cs" />
+    <Compile Include="Controllers\OlympiadTeamController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\StudentTeamController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
@@ -320,6 +322,14 @@
     <Content Include="Views\Team\Create.cshtml" />
     <Content Include="Views\StudentTeam\Edit.cshtml" />
     <Content Include="Views\StudentTeam\Delete.cshtml" />
+    <Content Include="Views\OlympiadTeam\Index.cshtml" />
+    <Content Include="Views\OlympiadTeam\Create.cshtml" />
+    <Content Include="Views\OlympiadTeam\Delete.cshtml" />
+    <Content Include="Views\OlympiadTeam\Edit.cshtml" />
+    <Content Include="Views\OlympiadStudent\Create.cshtml" />
+    <Content Include="Views\OlympiadStudent\Delete.cshtml" />
+    <Content Include="Views\OlympiadStudent\Edit.cshtml" />
+    <Content Include="Views\OlympiadStudent\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

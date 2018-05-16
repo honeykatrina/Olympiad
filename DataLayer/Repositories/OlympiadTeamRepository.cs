@@ -19,7 +19,7 @@ namespace DataLayer.Repositories
 
         public IEnumerable<OlympiadTeam> GetAll()
         {
-            return _context.OlympiadTeams.Include(x => x.Team).Include(x => x.Olympiad).Include(x => x.Instructor);
+            return _context.OlympiadTeams.Include(x => x.Team).Include(x => x.Olympiad).Include(x => x.Instructor).ToList();
         }
 
         public void Create(OlympiadTeam item)

@@ -64,6 +64,7 @@ namespace LogicLayer.Services
         {
             StudentTeam studentTeam = new StudentTeam
             {
+                StudentTeamID = item.StudentTeamID,
                 StudentID = item.StudentID,
                 TeamID = item.TeamID
             };

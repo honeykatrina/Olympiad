@@ -68,6 +68,7 @@ namespace LogicLayer.Services
         {
             OlympiadTeam olympiadTeam = new OlympiadTeam
             {
+                OlympiadTeamID = item.OlympiadTeamID,
                 TeamID = item.TeamID,
                 OlympiadID = item.OlympiadID,
                 TeamPlace = item.TeamPlace,

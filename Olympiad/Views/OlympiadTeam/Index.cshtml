@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Olympiad.Models.OlympiadTeamViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th class="hidden-xs hidden-sm hidden-md hidden-lg">
+            @Html.DisplayNameFor(model => model.OlympiadTeamID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OlympiadID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamPlace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstructorID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="hidden-xs hidden-sm hidden-md hidden-lg">
+            @Html.DisplayFor(modelItem => item.OlympiadTeamID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Olympiad.OlympiadName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.TeamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamPlace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instructor.InstructorSurname)
+            @Html.DisplayFor(modelItem => item.Instructor.InstructorName)
+            @Html.DisplayFor(modelItem => item.Instructor.InstructorPatronymic)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OlympiadTeamID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.OlympiadTeamID })
+        </td>
+    </tr>
+}
+
+</table>

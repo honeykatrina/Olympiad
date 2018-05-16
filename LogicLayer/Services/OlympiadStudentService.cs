@@ -68,6 +68,7 @@ namespace LogicLayer.Services
         {
             OlympiadStudent olympiadStudent = new OlympiadStudent
             {
+                OlympiadStudentID = item.OlympiadStudentID,
                 StudentID = item.StudentID,
                 OlympiadID = item.OlympiadID,
                 StudentPlace = item.StudentPlace,
