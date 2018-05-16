@@ -13,12 +13,12 @@ namespace Olympiad.Controllers
     public class OlympiadController : Controller
     {
         private IService<OlympiadDTO> _olympiadService;
-        private IService<UniversityDTO> _univercityService;
+        private IService<UniversityDTO> _universityService;
 
-        public OlympiadController(IService<OlympiadDTO> olympiadService, IService<UniversityDTO> univercityService)
+        public OlympiadController(IService<OlympiadDTO> olympiadService, IService<UniversityDTO> universityService)
         {
             _olympiadService = olympiadService;
-            _univercityService = univercityService;
+            _universityService = universityService;
         }
         //
         // GET: /Olympiad/
@@ -33,10 +33,10 @@ namespace Olympiad.Controllers
         // GET: /Olympiad/Create
         public ActionResult Create()
         {
-            var allUnivercities = _univercityService.GetItems();
+            var allUniversities = _universityService.GetItems();
             var items = new List<SelectListItem>();
 
-            foreach (var univ in allUnivercities)
+            foreach (var univ in allUniversities)
             {
                 items.Add(new SelectListItem()
                 {
@@ -44,7 +44,7 @@ namespace Olympiad.Controllers
                     Value = univ.UniversityID.ToString()
                 });
             }
-            ViewBag.Univercities = items;
+            ViewBag.Universities = items;
             return View();
         }
 
@@ -56,7 +56,13 @@ namespace Olympiad.Controllers
             _olympiadService.AddNewItem(new OlympiadDTO()
             {
                 OlympiadID = olympiad.OlympiadID,
-                OlympiadName = olympiad.OlympiadName
+                OlympiadName = olympiad.OlympiadName,
+                OlympiadLevel = olympiad.OlympiadLevel,
+                OlympiadStartDate = olympiad.OlympiadStartDate,
+                OlympiadEndDate = olympiad.OlympiadEndDate,
+                OlympiadDirection = olympiad.OlympiadDirection,
+                OlympiadType = olympiad.OlympiadType,
+                UniversityID = olympiad.UniversityID
             });
 
             return RedirectToAction("Index");
@@ -67,10 +73,10 @@ namespace Olympiad.Controllers
         public ActionResult Edit(int id)
         {
             OlympiadDTO olympiadDto = _olympiadService.GetItem(id);
-            var allUnivercities = _univercityService.GetItems();
+            var allUniversities = _universityService.GetItems();
             var items = new List<SelectListItem>();
 
-            foreach (var univ in allUnivercities)
+            foreach (var univ in allUniversities)
             {
                 items.Add(new SelectListItem()
                 {
@@ -78,7 +84,7 @@ namespace Olympiad.Controllers
                     Value = univ.UniversityID.ToString()
                 });
             }
-            ViewBag.Univercities = items;
+            ViewBag.Universities = items;
             
             var olympiad = Mapper.Map<OlympiadDTO, OlympiadViewModel>(olympiadDto);
             return View(olympiad);
@@ -92,7 +98,13 @@ namespace Olympiad.Controllers
             _olympiadService.UpdateItem(new OlympiadDTO()
             {
                 OlympiadID = olympiad.OlympiadID,
-                OlympiadName = olympiad.OlympiadName
+                OlympiadName = olympiad.OlympiadName,
+                OlympiadLevel = olympiad.OlympiadLevel,
+                OlympiadStartDate = olympiad.OlympiadStartDate,
+                OlympiadEndDate = olympiad.OlympiadEndDate,
+                OlympiadDirection = olympiad.OlympiadDirection,
+                OlympiadType = olympiad.OlympiadType,
+                UniversityID = olympiad.UniversityID
             });
             return RedirectToAction("Index");
         }

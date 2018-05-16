@@ -19,9 +19,13 @@ namespace Olympiad.Models
         public string OlympiadLevel { get; set; }
         [Required]
         [Display(Name = "Дата начала")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime OlympiadStartDate { get; set; }
         [Required]
         [Display(Name = "Дата окончания")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime OlympiadEndDate{ get; set; }
         [Required]
         [Display(Name = "Направление")]
