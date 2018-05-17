@@ -71,140 +71,7 @@ namespace Olympiad.Controllers
             }
             return View(model);
         }
-
-        //
-        //// GET: /Account/ForgotPassword
-        //[AllowAnonymous]
-        //public ActionResult ForgotPassword()
-        //{
-        //    return View();
-        //}
-
-        ////
-        //// POST: /Account/ForgotPassword
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = await UserManager.FindByNameAsync(model.Email);
-        //        if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
-        //        {
-        //            // Не показывать, что пользователь не существует или не подтвержден
-        //            return View("ForgotPasswordConfirmation");
-        //        }
-
-        //        // Дополнительные сведения о включении подтверждения учетной записи и сброса пароля см. на странице https://go.microsoft.com/fwlink/?LinkID=320771.
-        //        // Отправка сообщения электронной почты с этой ссылкой
-        //        // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-        //        // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-        //        // await UserManager.SendEmailAsync(user.Id, "Сброс пароля", "Сбросьте ваш пароль, щелкнув <a href=\"" + callbackUrl + "\">здесь</a>");
-        //        // return RedirectToAction("ForgotPasswordConfirmation", "Account");
-        //    }
-
-        //    // Появление этого сообщения означает наличие ошибки; повторное отображение формы
-        //    return View(model);
-        //}
-
-        ////
-        //// GET: /Account/ForgotPasswordConfirmation
-        //[AllowAnonymous]
-        //public ActionResult ForgotPasswordConfirmation()
-        //{
-        //    return View();
-        //}
-
-        ////
-        //// GET: /Account/ResetPassword
-        //[AllowAnonymous]
-        //public ActionResult ResetPassword(string code)
-        //{
-        //    return code == null ? View("Error") : View();
-        //}
-
-        ////
-        //// POST: /Account/ResetPassword
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
-        //    var user = await UserManager.FindByNameAsync(model.Email);
-        //    if (user == null)
-        //    {
-        //        // Не показывать, что пользователь не существует
-        //        return RedirectToAction("ResetPasswordConfirmation", "Account");
-        //    }
-        //    var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
-        //    if (result.Succeeded)
-        //    {
-        //        return RedirectToAction("ResetPasswordConfirmation", "Account");
-        //    }
-        //    AddErrors(result);
-        //    return View();
-        //}
-
-        ////
-        //// GET: /Account/ResetPasswordConfirmation
-        //[AllowAnonymous]
-        //public ActionResult ResetPasswordConfirmation()
-        //{
-        //    return View();
-        //}
-
-        ////
-        //// POST: /Account/ExternalLogin
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult ExternalLogin(string provider, string returnUrl)
-        //{
-        //    // Запрос перенаправления к внешнему поставщику входа
-        //    return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
-        //}
-
-        ////
-        //// GET: /Account/SendCode
-        //[AllowAnonymous]
-        //public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
-        //{
-        //    var userId = await SignInManager.GetVerifiedUserIdAsync();
-        //    if (userId == null)
-        //    {
-        //        return View("Error");
-        //    }
-        //    var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
-        //    var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
-        //    return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
-        //}
-
-        ////
-        //// POST: /Account/SendCode
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> SendCode(SendCodeViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View();
-        //    }
-
-        //    // Создание и отправка маркера
-        //    if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
-        //    {
-        //        return View("Error");
-        //    }
-        //    return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
-        //}
-
-       
+        
         //
         // POST: /Account/LogOff
         public ActionResult LogOff()
@@ -217,10 +84,9 @@ namespace Olympiad.Controllers
         {
             await UserService.SetInitialData(new UserDTO
             {
-                Email = "somemail@mail.ru",
-                UserName = "somemail@mail.ru",
-                Password = "ad46D_ewr3",
-                Name = "Семен Семенович Горбунков",
+                Email = "kate@mail.ru",
+                UserName = "Екатерина",
+                Password = "1111",
                 Role = "admin",
             }, new List<string> { "user", "admin" });
         }

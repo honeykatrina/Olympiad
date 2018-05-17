@@ -45,7 +45,6 @@ namespace LogicLayer.Services
         public DepartmentDTO GetItem(int? id)
         {
             Department department = _database.Departments.Get(id);
-            //return Mapper.Map<Department, DepartmentDTO>(Department);
             return new DepartmentDTO
             {
                 DepartmentID = department.DepartmentID,

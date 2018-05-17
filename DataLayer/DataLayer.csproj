@@ -208,7 +208,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\ClientProfileConfig.cs" />
     <Compile Include="Configuration\DepartmentConfig.cs" />
     <Compile Include="Configuration\InstructorConfig.cs" />
     <Compile Include="Configuration\OlympiadConfig.cs" />
