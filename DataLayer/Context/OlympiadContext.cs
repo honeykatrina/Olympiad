@@ -43,8 +43,9 @@ namespace DataLayer.Context
             modelBuilder.Configurations.Add(new StudentTeamConfig());
             modelBuilder.Configurations.Add(new TeamConfig());
             modelBuilder.Configurations.Add(new UniversityConfig());
-            modelBuilder.Configurations.Add(new ClientProfileConfig());
-
+            //modelBuilder.Configurations.Add(new ClientProfileConfig());
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(t => new { t.UserId, t.ProviderKey, t.LoginProvider });
+            modelBuilder.Entity<IdentityUserRole>().HasKey(t => new { t.RoleId, t.UserId });
         }
 }
 }

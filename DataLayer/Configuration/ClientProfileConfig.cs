@@ -7,12 +7,12 @@ using System.Web;
 
 namespace DataLayer.Configuration
 {
-    public class ClientProfileConfig : EntityTypeConfiguration<ClientProfile>
-    {
-        public ClientProfileConfig()
-        {
-            HasKey(x => x.ClientId);
-            ToTable("ClientProfiles");
-        }
-    }
+    //public class ClientProfileConfig : EntityTypeConfiguration<ClientProfile>
+    //{
+    //    public ClientProfileConfig()
+    //    {
+    //        HasKey(x => x.ClientId);
+    //        ToTable("ClientProfiles");
+    //    }
+    //}
 }

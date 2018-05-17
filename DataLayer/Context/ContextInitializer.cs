@@ -102,7 +102,6 @@ namespace DataLayer.Context
             };
             studentteams.ForEach(s => context.StudentTeams.Add(s));
             context.SaveChanges();
-
         }
     }
 }

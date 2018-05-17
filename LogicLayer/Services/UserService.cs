@@ -15,32 +15,32 @@ namespace LogicLayer.Services
 {
     public class UserService : IUserService
     {
-        IUnitOfWork Database { get; set; }
+        private IUnitOfWork _database { get; set; }
 
         public UserService(IUnitOfWork uow)
         {
-            Database = uow;
+            _database = uow;
         }
 
         public async Task<OperationDetails> Create(UserDTO userDto)
         {
-            ApplicationUser user = await Database.UserManager.FindByEmailAsync(userDto.Email);
+            ApplicationUser user = await _database.UserManager.FindByEmailAsync(userDto.Email);
             if (user == null)
             {
                 user = new ApplicationUser { Email = userDto.Email, UserName = userDto.UserName };
-                var result = await Database.UserManager.CreateAsync(user, userDto.Password);
+                var result = await _database.UserManager.CreateAsync(user, userDto.Password);
 
                 if (result.Errors.Count() > 0)
                     return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
 
                 // Add role
-                await Database.UserManager.AddToRoleAsync(user.Id, userDto.Role);
+                await _database.UserManager.AddToRoleAsync(user.Id, userDto.Role);
 
                 // Create client profile
                 ClientProfile clientProfile = new ClientProfile { ClientId = user.Id, Email = userDto.Email, UserName = userDto.UserName };
-                Database.ClientManager.Create(clientProfile);
+                _database.ClientManager.Create(clientProfile);
 
-                await Database.SaveAsync();
+                await _database.SaveAsync();
                 return new OperationDetails(true, "Регистрация успешно пройдена", "");
             }
             else
@@ -53,10 +53,10 @@ namespace LogicLayer.Services
         {
             ClaimsIdentity claim = null;
             // Find user
-            ApplicationUser user = await Database.UserManager.FindAsync(userDto.UserName, userDto.Password);
+            ApplicationUser user = await _database.UserManager.FindAsync(userDto.Email, userDto.Password);
 
             if (user != null)
-                claim = await Database.UserManager.CreateIdentityAsync(user,
+                claim = await _database.UserManager.CreateIdentityAsync(user,
                                             DefaultAuthenticationTypes.ApplicationCookie);
             return claim;
         }
@@ -65,11 +65,11 @@ namespace LogicLayer.Services
         {
             foreach (string roleName in roles)
             {
-                var role = await Database.RoleManager.FindByNameAsync(roleName);
+                var role = await _database.RoleManager.FindByNameAsync(roleName);
                 if (role == null)
                 {
                     role = new ApplicationRole { Name = roleName };
-                    await Database.RoleManager.CreateAsync(role);
+                    await _database.RoleManager.CreateAsync(role);
                 }
             }
             await Create(adminDto);
@@ -77,7 +77,7 @@ namespace LogicLayer.Services
 
         public void Dispose()
         {
-            Database.Dispose();
+            _database.Dispose();
         }
     }
 }
