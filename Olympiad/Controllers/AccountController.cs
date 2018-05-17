@@ -85,8 +85,8 @@ namespace Olympiad.Controllers
             await UserService.SetInitialData(new UserDTO
             {
                 Email = "kate@mail.ru",
-                UserName = "Екатерина",
-                Password = "1111",
+                UserName = "kate@mail.ru",
+                Password = "ad46D_ewr3",
                 Role = "admin",
             }, new List<string> { "user", "admin" });
         }
