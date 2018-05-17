@@ -161,6 +161,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ClientProfileConfig.cs" />
     <Compile Include="Configuration\DepartmentConfig.cs" />
     <Compile Include="Configuration\InstructorConfig.cs" />
     <Compile Include="Configuration\OlympiadConfig.cs" />
@@ -172,8 +173,14 @@
     <Compile Include="Configuration\UniversityConfig.cs" />
     <Compile Include="Context\ContextInitializer.cs" />
     <Compile Include="Context\OlympiadContext.cs" />
+    <Compile Include="Identity\ApplicationRoleManager.cs" />
+    <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Interfaces\IClientManager.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Models\ApplicationRole.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\ClientProfile.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\Olympiad.cs" />
@@ -185,6 +192,7 @@
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\University.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ClientManagerReposiroty.cs" />
     <Compile Include="Repositories\EFUnitOfWork.cs" />
     <Compile Include="Repositories\DepartmentRepository.cs" />
     <Compile Include="Repositories\InstructorRepository.cs" />
