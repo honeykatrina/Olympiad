@@ -10,8 +10,8 @@ namespace DataLayer.Models
     {
         [ForeignKey("ApplicationUser")]
         public string ClientId { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
     }

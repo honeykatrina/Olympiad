@@ -214,7 +214,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\OperationDetails.cs" />
     <Compile Include="Interfaces\IService.cs" />
+    <Compile Include="Interfaces\IServiceCreator.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Models\DepartmentDTO.cs" />
     <Compile Include="Models\InstructorDTO.cs" />
@@ -230,6 +232,7 @@
     <Compile Include="Services\DepartmentService.cs" />
     <Compile Include="Services\InstructorService.cs" />
     <Compile Include="Services\OlympiadService.cs" />
+    <Compile Include="Infrastructure\ServiceCreator.cs" />
     <Compile Include="Services\ServiceModule.cs" />
     <Compile Include="Services\StudentTeamService.cs" />
     <Compile Include="Services\OlympiadTeamService.cs" />
@@ -237,6 +240,7 @@
     <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\TeamService.cs" />
     <Compile Include="Services\UniversityService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
