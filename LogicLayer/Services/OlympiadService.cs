@@ -24,7 +24,13 @@ namespace LogicLayer.Services
             Olympiad olympiad = new Olympiad
             {
                 OlympiadID = item.OlympiadID,
-                OlympiadName = item.OlympiadName
+                OlympiadName = item.OlympiadName,
+                OlympiadLevel = item.OlympiadLevel,
+                OlympiadStartDate=item.OlympiadStartDate,
+                OlympiadEndDate=item.OlympiadEndDate,
+                OlympiadDirection=item.OlympiadDirection,
+                OlympiadType=item.OlympiadType,
+                UniversityID=item.UniversityID
             };
 
             _database.Olympiads.Create(olympiad);
@@ -36,7 +42,13 @@ namespace LogicLayer.Services
             Olympiad olympiad = new Olympiad
             {
                 OlympiadID = item.OlympiadID,
-                OlympiadName = item.OlympiadName
+                OlympiadName = item.OlympiadName,
+                OlympiadLevel = item.OlympiadLevel,
+                OlympiadStartDate = item.OlympiadStartDate,
+                OlympiadEndDate = item.OlympiadEndDate,
+                OlympiadDirection = item.OlympiadDirection,
+                OlympiadType = item.OlympiadType,
+                UniversityID = item.UniversityID
             };
 
             _database.Olympiads.Update(olympiad);
@@ -52,11 +64,17 @@ namespace LogicLayer.Services
 
         public OlympiadDTO GetItem(int? id)
         {
-            Olympiad olympiad = _database.Olympiads.Get(id);
+            Olympiad item = _database.Olympiads.Get(id);
             return new OlympiadDTO
             {
-                OlympiadID = olympiad.OlympiadID,
-                OlympiadName = olympiad.OlympiadName
+                OlympiadID = item.OlympiadID,
+                OlympiadName = item.OlympiadName,
+                OlympiadLevel = item.OlympiadLevel,
+                OlympiadStartDate = item.OlympiadStartDate,
+                OlympiadEndDate = item.OlympiadEndDate,
+                OlympiadDirection = item.OlympiadDirection,
+                OlympiadType = item.OlympiadType,
+                UniversityID = item.UniversityID
             };
         }
 
