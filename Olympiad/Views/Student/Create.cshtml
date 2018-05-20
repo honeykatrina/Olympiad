@@ -43,7 +43,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Course, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Course)
+                @Html.TextBoxFor(model => model.Course, new { type = "number", min = "1", max="6", step = "1" })
                 @Html.ValidationMessageFor(model => model.Course)
             </div>
         </div>

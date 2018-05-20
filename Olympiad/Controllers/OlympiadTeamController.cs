@@ -70,7 +70,7 @@ namespace Olympiad.Controllers
             {
                 itemsInstructors.Add(new SelectListItem()
                 {
-                    Text = st.InstructorSurname,
+                    Text = st.InstructorSurname+" "+st.InstructorName,
                     Value = st.InstructorID.ToString()
                 });
             }
@@ -135,7 +135,7 @@ namespace Olympiad.Controllers
             {
                 itemsInstructors.Add(new SelectListItem()
                 {
-                    Text = st.InstructorSurname,
+                    Text = st.InstructorSurname+" "+st.InstructorName,
                     Value = st.InstructorID.ToString()
                 });
             }
@@ -165,6 +165,12 @@ namespace Olympiad.Controllers
         public ActionResult Delete(int? id)
         {
             OlympiadTeamDTO olympiadTeamDto = _olympiadTeamService.GetItem(id);
+            var instructorDto = _instructorService.GetItem(olympiadTeamDto.InstructorID);
+            ViewBag.Instructor = instructorDto.InstructorSurname + " " + instructorDto.InstructorName + " " + instructorDto.InstructorPatronymic;
+            var teamDto = _teamService.GetItem(olympiadTeamDto.TeamID);
+            ViewBag.Team = teamDto.TeamName;
+            var olympiadDto = _olympiadService.GetItem(olympiadTeamDto.OlympiadID);
+            ViewBag.Olympiad = olympiadDto.OlympiadName;
             var olympiadTeam = Mapper.Map<OlympiadTeamDTO, OlympiadTeamViewModel>(olympiadTeamDto);
             return View(olympiadTeam);
         }

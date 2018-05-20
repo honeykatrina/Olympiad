@@ -168,6 +168,13 @@ namespace Olympiad.Controllers
         public ActionResult Delete(int? id)
         {
             OlympiadStudentDTO olympiadStudentDto = _olympiadStudentService.GetItem(id);
+            var instructorDto = _instructorService.GetItem(olympiadStudentDto.InstructorID);
+            ViewBag.ForInstructor = "Преподаватель";
+            ViewBag.Instructor = instructorDto.InstructorSurname + " " + instructorDto.InstructorName + " " + instructorDto.InstructorPatronymic;
+            var studentDto = _studentService.GetItem(olympiadStudentDto.StudentID);
+            ViewBag.Student = studentDto.StudentSurname + " " + studentDto.StudentName + " " + studentDto.StudentPatronymic;
+            var olympiadDto = _olympiadService.GetItem(olympiadStudentDto.OlympiadID);
+            ViewBag.Olympiad = olympiadDto.OlympiadName;
             var olympiadStudent = Mapper.Map<OlympiadStudentDTO, OlympiadStudentViewModel>(olympiadStudentDto);
             return View(olympiadStudent);
         }

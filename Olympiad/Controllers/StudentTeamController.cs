@@ -35,19 +35,6 @@ namespace Olympiad.Controllers
         // GET: /StudentTeam/Create
         public ActionResult Create()
         {
-            var allStudents = _studentService.GetItems();
-            var itemsStudents = new List<SelectListItem>();
-
-            foreach (var st in allStudents)
-            {
-                itemsStudents.Add(new SelectListItem()
-                {
-                    Text = st.StudentSurname,
-                    Value = st.StudentID.ToString()
-                });
-            }
-            ViewBag.Students = itemsStudents;
-
             var allTeams = _teamService.GetItems();
             var itemsTeams = new List<SelectListItem>();
 
@@ -60,7 +47,48 @@ namespace Olympiad.Controllers
                 });
             }
             ViewBag.Teams = itemsTeams;
+
+            var allStudents = _studentService.GetItems();
+            var itemsStudents = new List<SelectListItem>();
+            foreach (var st in allStudents)
+            {
+                itemsStudents.Add(new SelectListItem()
+                {
+                    Text = st.StudentSurname + " " + st.StudentName,
+                    Value = st.StudentID.ToString()
+                });
+            }
+           ViewBag.Students = itemsStudents;
             return View();
+        }
+
+        public ActionResult GetStudents(int id)
+        {
+            var allStudents = _studentService.GetItems();
+            List<StudentTeamDTO> studentTeamDtos = _studentTeamService.GetItems().ToList();
+            var studentsOfTeam = new List<StudentDTO>();
+            foreach (var st in studentTeamDtos)
+           {
+                if (st.Team.TeamID == id)
+                {
+                    studentsOfTeam.Add(st.Student);
+                }
+           }           
+
+            var itemsStudents = new List<SelectListItem>();
+            foreach (var st in allStudents)
+            {
+                if ((studentsOfTeam.Find(x=>x.StudentID==st.StudentID)==null))
+                {
+                    itemsStudents.Add(new SelectListItem()
+                    {
+                        Text = st.StudentSurname+" " + st.StudentName,
+                        Value = st.StudentID.ToString()
+                   });
+               }
+            }
+            ViewBag.Students = itemsStudents;
+            return PartialView();
         }
 
         //
@@ -131,6 +159,10 @@ namespace Olympiad.Controllers
         public ActionResult Delete(int? id)
         {
             StudentTeamDTO studentTeamDto = _studentTeamService.GetItem(id);
+            var studentDto = _studentService.GetItem(studentTeamDto.StudentID);
+            ViewBag.Student = studentDto.StudentSurname + " " + studentDto.StudentName + " " + studentDto.StudentPatronymic;
+            var teamDto = _teamService.GetItem(studentTeamDto.TeamID);
+            ViewBag.Team = teamDto.TeamName;
             var studentTeam = Mapper.Map<StudentTeamDTO, StudentTeamViewModel>(studentTeamDto);
             return View(studentTeam);
         }

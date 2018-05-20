@@ -6,28 +6,28 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>StudentTeamViewModel</h4>
+        <h4>Добавление участника команды</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Student.StudentName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Team.TeamName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.StudentID, new SelectList(ViewBag.Students, "Value", "Text", 1))
-                @Html.ValidationMessageFor(model => model.Student.StudentName, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.TeamID, new SelectList(ViewBag.Teams, "Value", "Text", 1), new { id = "team" })
+                @Html.ValidationMessageFor(model => model.Team.TeamName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Team.TeamName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Student.StudentSurname, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.TeamID, new SelectList(ViewBag.Teams, "Value", "Text", 1))
-                @Html.ValidationMessageFor(model => model.Team.TeamName, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.StudentID, new SelectList(ViewBag.Students, "Value", "Text", 1), new { id = "student" })
+                @Html.ValidationMessageFor(model => model.Student.StudentSurname, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -42,3 +42,30 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+@section scripts{
+<script type="text/javascript">
+    $(function() {
+
+    function replaceStudents()
+    {
+        var id = $('#team').val();
+        console.log(id);
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Action("GetStudents")/' + id,
+            success: function (data) {
+                console.log("here");
+                console.log(data);
+         // заменяем содержимое присланным частичным представлением
+         $('#student').replaceWith(data);
+        }
+        });
+    }
+
+    $('#team').change(replaceStudents);
+    $(document).ready(replaceStudents);
+
+    });
+</script>
+}
+    

@@ -35,7 +35,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.TeamPlace, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.TeamPlace)
+                    @Html.TextBoxFor(model => model.TeamPlace, new { type = "number", min = "1", step = "1" })
                     @Html.ValidationMessageFor(model => model.TeamPlace)
                 </div>
             </div>

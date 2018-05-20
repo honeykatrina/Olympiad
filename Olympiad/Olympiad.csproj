@@ -341,7 +341,6 @@
     <Content Include="Views\Team\Edit.cshtml" />
     <Content Include="Views\Team\Delete.cshtml" />
     <Content Include="Views\Team\Create.cshtml" />
-    <Content Include="Views\StudentTeam\Edit.cshtml" />
     <Content Include="Views\StudentTeam\Delete.cshtml" />
     <Content Include="Views\OlympiadTeam\Index.cshtml" />
     <Content Include="Views\OlympiadTeam\Create.cshtml" />
@@ -355,6 +354,7 @@
     <Content Include="Views\Olympiad\Edit.cshtml" />
     <Content Include="Views\Olympiad\Delete.cshtml" />
     <Content Include="Views\Olympiad\Create.cshtml" />
+    <Content Include="Views\StudentTeam\GetStudents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,7 +12,7 @@ namespace Olympiad.Models
         [Display(Name = "Id университета")]
         public int UniversityID { get; set; }
         [Required]
-        [Display(Name = "Название университета")]
+        [Display(Name = "Университет")]
         public string UniversityName { get; set; }
         [Required]
         [Display(Name = "Город")]
