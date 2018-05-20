@@ -114,6 +114,8 @@ namespace Olympiad.Controllers
         public ActionResult Delete(int? id)
         {
             OlympiadDTO olympiadDto = _olympiadService.GetItem(id);
+            var universityForName = _universityService.GetItem(olympiadDto.UniversityID);
+            ViewBag.University = universityForName.UniversityName;
             var olympiad = Mapper.Map<OlympiadDTO, OlympiadViewModel>(olympiadDto);
             return View(olympiad);
         }

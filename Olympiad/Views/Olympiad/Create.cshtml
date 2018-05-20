@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>OlympiadDTO</h4>
+        <h4>Добавление олимпиады</h4>
         <hr />
         @Html.ValidationSummary(true)
 
@@ -35,7 +35,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OlympiadStartDate, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OlympiadStartDate, new { @class = "date-picker", onkeydown = "return false", onpaste = "return false" })
+                @Html.TextBoxFor(model => model.OlympiadStartDate, new { @class = "date-picker", onkeydown = "return false", onpaste = "return false" })
                 @Html.ValidationMessageFor(model => model.OlympiadStartDate)
             </div>
         </div>
@@ -43,7 +43,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OlympiadEndDate, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OlympiadEndDate, new { @class = "date-picker", onkeydown = "return false", onpaste = "return false" })
+                @Html.TextBoxFor(model => model.OlympiadEndDate, new { @class = "date-picker", onkeydown = "return false", onpaste = "return false" })
                 @Html.ValidationMessageFor(model => model.OlympiadEndDate)
             </div>
         </div>

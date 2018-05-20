@@ -23,6 +23,7 @@ namespace Olympiad.Models
         public string StudentPatronymic { get; set; }
         [Required]
         [Display(Name = "Курс")]
+        [Range(1, 6, ErrorMessage = "Недопустимый курс")]
         public int Course { get; set; }
         [Required]
         [Display(Name = "Группа")]

@@ -121,7 +121,10 @@ namespace Olympiad.Controllers
         // GET: Student/Delete/5
         public ActionResult Delete(int? id)
         {
+         
             StudentDTO studentDto = _studentService.GetItem(id);
+            var departmentDto = _depatrmentService.GetItem(studentDto.DepartmentId);
+            ViewBag.Departments = departmentDto.DepartmentName;
             var student = Mapper.Map<StudentDTO, StudentViewModel>(studentDto);
             return View(student);
         }

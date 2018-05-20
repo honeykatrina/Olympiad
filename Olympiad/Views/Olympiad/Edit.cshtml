@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>OlympiadDTO</h4>
+        <h4>Редактирование олимпиады</h4>
         <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">
@@ -41,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OlympiadStartDate, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OlympiadStartDate, new { Value = Model.OlympiadStartDate.ToString("dd-MMM-yyyy"), @class = "date-picker" })
+                @Html.TextBoxFor(model => model.OlympiadStartDate, new { Value = Model.OlympiadStartDate.ToString("dd-MM-yyyy"), @class = "date-picker" })
                 @Html.ValidationMessageFor(model => model.OlympiadStartDate)
             </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OlympiadEndDate, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OlympiadEndDate, new { Value = Model.OlympiadEndDate.ToString("dd-MMM-yyyy"), @class = "date-picker" })
+                @Html.TextBoxFor(model => model.OlympiadEndDate, new { Value = Model.OlympiadEndDate.ToString("dd-MM-yyyy"), @class = "date-picker" })
                 @Html.ValidationMessageFor(model => model.OlympiadEndDate)
             </div>
         </div>
@@ -99,7 +99,7 @@
     <script type="text/javascript">
         $(function () {
             $(".date-picker").datepicker({
-                dateFormat: 'dd-M-yy'
+                dateFormat: 'dd-MM-yy'
             });
 
         });

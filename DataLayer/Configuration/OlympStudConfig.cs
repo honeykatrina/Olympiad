@@ -22,7 +22,7 @@ namespace DataLayer.Configuration
             HasRequired(x => x.Student)
                 .WithMany(x => x.Olympiads)
                 .HasForeignKey(x => x.StudentID)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
 
             HasRequired(x => x.Instructor)
