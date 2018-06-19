@@ -1,17 +1,13 @@
-﻿using System;
+﻿using LogicLayer.Interfaces;
+using LogicLayer.Models;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using Olympiad.Models;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using LogicLayer.Interfaces;
-using LogicLayer.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using Olympiad.Models;
 
 namespace Olympiad.Controllers
 {

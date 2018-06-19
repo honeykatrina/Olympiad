@@ -1,13 +1,9 @@
-﻿using DataLayer.Repositories;
-using LogicLayer.Interfaces;
-using LogicLayer.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using AutoMapper;
 using DataLayer.Interfaces;
 using DataLayer.Models;
-using AutoMapper;
+using LogicLayer.Interfaces;
+using LogicLayer.Models;
+using System.Collections.Generic;
 
 namespace LogicLayer.Services
 {

@@ -1,11 +1,9 @@
-﻿using System;
+﻿using DataLayer.Context;
+using DataLayer.Interfaces;
+using DataLayer.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
-using DataLayer.Context;
-using DataLayer.Models;
-using DataLayer.Interfaces;
 
 namespace DataLayer.Repositories
 {

@@ -1,10 +1,6 @@
 ﻿using DataLayer.Repositories;
 using LogicLayer.Interfaces;
 using LogicLayer.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace LogicLayer.Infrastructure
 {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using DataLayer.Models;
-
-namespace LogicLayer.Models
+﻿namespace LogicLayer.Models
 {
     public class OlympiadStudentDTO
     {

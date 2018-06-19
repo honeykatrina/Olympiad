@@ -1,14 +1,9 @@
-﻿using System;
-using DataLayer.Models;
-using LogicLayer.Infrastructure;
+﻿using LogicLayer.Infrastructure;
 using LogicLayer.Interfaces;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
-using Olympiad.Models;
 
 [assembly: OwinStartupAttribute(typeof(Olympiad.Startup))]
 namespace Olympiad

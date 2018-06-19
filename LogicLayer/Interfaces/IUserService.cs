@@ -1,11 +1,9 @@
-﻿using LogicLayer.Models;
+﻿using LogicLayer.Infrastructure;
+using LogicLayer.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using LogicLayer.Infrastructure;
 
 namespace LogicLayer.Interfaces
 {
