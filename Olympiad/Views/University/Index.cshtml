@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Olympiad.Models.UniversityViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Университеты";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить новый", "Create")
 </p>
 <table class="table">
     <tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Country)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UniversityID }) |
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.UniversityID }) |
             
-            @Html.ActionLink("Delete", "Delete", new { id = item.UniversityID })
+            @Html.ActionLink("Удалить", "Delete", new { id = item.UniversityID })
         </td>
     </tr>
 }

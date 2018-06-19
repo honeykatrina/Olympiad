@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Olympiad.Models.StudentTeamViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Составы команд";
 }
 
-<h2>Index</h2>
+<h4>@ViewBag.Title</h4>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить нового члена", "Create")
 </p>
 <table class="table">
     <tr>
@@ -37,7 +37,7 @@
         </td>
         <td>
             
-            @Html.ActionLink("Delete", "Delete", new { id = item.StudentTeamID })
+            @Html.ActionLink("Удалить", "Delete", new { id = item.StudentTeamID })
         </td>
     </tr>
 }

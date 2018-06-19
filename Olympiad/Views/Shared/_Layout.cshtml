@@ -23,16 +23,16 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
                     <li>@Html.ActionLink("Олимпиады", "Index", "Olympiad")</li>
                     <li>@Html.ActionLink("Университеты", "Index", "University")</li>
                     <li>@Html.ActionLink("Студенты", "Index", "Student")</li>
                     <li>@Html.ActionLink("Команды", "Index", "Team")</li>
                     <li>@Html.ActionLink("Преподаватели", "Index", "Instructor")</li>
                     <li>@Html.ActionLink("Кафедры", "Index", "Department")</li>
-                    <li>@Html.ActionLink("Состав команд", "Index", "StudentTeam")</li>
-                    <li>@Html.ActionLink("Командные олимпиады", "Index", "OlympiadTeam")</li>
-                    <li>@Html.ActionLink("Индивидуальные олимпиады", "Index", "OlympiadStudent")</li>
+                    <li>@Html.ActionLink("Состав "+"\n"+ "команд", "Index", "StudentTeam")</li>
+                    <li>@Html.ActionLink("Командные \n олимпиады", "Index", "OlympiadTeam")</li>
+                    <li>@Html.ActionLink("Индивидуальные \n олимпиады", "Index", "OlympiadStudent")</li>
                     <li>@Html.Partial("_LoginPartial")</li>
                 </ul>
                
