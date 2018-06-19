@@ -2,10 +2,6 @@
 using LogicLayer.Models;
 using LogicLayer.Services;
 using Ninject.Modules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Olympiad.Util
 {
@@ -23,6 +19,7 @@ namespace Olympiad.Util
             Bind<IService<OlympiadStudentDTO>>().To<OlympiadStudentService>();
             Bind<IService<OlympiadTeamDTO>>().To<OlympiadTeamService>();
             Bind<IService<StudentTeamDTO>>().To<StudentTeamService>();
+            Bind<IReportService>().To<ReportService>();
         }
     }
 }
