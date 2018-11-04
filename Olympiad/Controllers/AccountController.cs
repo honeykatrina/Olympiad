@@ -11,7 +11,6 @@ using System.Web.Mvc;
 
 namespace Olympiad.Controllers
 {
-    //[Authorize]
     public class AccountController : Controller
     {
         private IUserService UserService
@@ -62,7 +61,7 @@ namespace Olympiad.Controllers
                     {
                         IsPersistent = true
                     }, claim);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index","Home", new { area = "Admin" });
                 }
             }
             return View(model);
@@ -73,7 +72,7 @@ namespace Olympiad.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         private async Task SetInitialDataAsync()
@@ -84,7 +83,7 @@ namespace Olympiad.Controllers
                 UserName = "kate@mail.ru",
                 Password = "ad46D_ewr3",
                 Role = "admin",
-            }, new List<string> { "user", "admin" });
+            }, new List<string> { "admin" });
         }
     }
 }
