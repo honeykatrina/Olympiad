@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Olympiad.Areas.Admin.Models.UniversityViewModel>
+
+@{
+    ViewBag.Title = "Университеты";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Добавить новый", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th class="hidden-xs hidden-sm hidden-md hidden-lg">
+            @Html.DisplayNameFor(model => model.UniversityID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="hidden-xs hidden-sm hidden-md hidden-lg">
+            @Html.DisplayFor(modelItem => item.UniversityID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.UniversityID }) |
+            
+            @Html.ActionLink("Удалить", "Delete", new { id = item.UniversityID })
+        </td>
+    </tr>
+}
+
+</table>

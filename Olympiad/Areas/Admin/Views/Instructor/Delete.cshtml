@@ -1,0 +1,86 @@
+﻿@model Olympiad.Areas.Admin.Models.InstructorViewModel
+
+@{
+    ViewBag.Title = "Удаление преподавателя";
+}
+
+<h3>Вы уверены, что хотите удалить этого преподавателя?</h3>
+<div>
+    <h4>Удаление преподавателя</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="hidden-xs hidden-sm hidden-md hidden-lg">
+            @Html.DisplayNameFor(model => model.InstructorID)
+        </dt>
+
+        <dd class="hidden-xs hidden-sm hidden-md hidden-lg">
+            @Html.DisplayFor(model => model.InstructorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstructorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstructorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstructorSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstructorSurname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstructorPatronymic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstructorPatronymic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstructorTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstructorTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstructorDegree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstructorDegree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstructorPosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstructorPosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </dt>
+
+        <dd>
+            @ViewBag.Departments
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Назад к списку", "Index")
+        </div>
+    }
+</div>

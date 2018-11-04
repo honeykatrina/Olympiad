@@ -1,0 +1,75 @@
+﻿@using Olympiad.Areas.Admin.Models
+@model IEnumerable<Olympiad.Areas.Admin.Models.StudentViewModel>
+
+@{
+    ViewBag.Title = "Студенты";
+}
+
+<h4>@ViewBag.Title</h4>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th class="hidden-xs hidden-sm hidden-md hidden-lg">
+            @Html.DisplayNameFor(model => model.StudentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentPatronymic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="hidden-xs hidden-sm hidden-md hidden-lg">
+            @Html.DisplayFor(modelItem => item.StudentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentPatronymic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specialty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id = item.StudentID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.StudentID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Olympiad.Areas.Admin.Models.OlympiadViewModel>
+
+@{
+    ViewBag.Title = "Олимпиады";
+}
+
+<h4>@ViewBag.Title</h4>
+
+<button class = "btn btn-success">
+    @Html.ActionLink("Добавить новую", "Create")
+</button>
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+        <th class="hidden-xs hidden-sm hidden-md hidden-lg">
+            @Html.DisplayNameFor(model => model.OlympiadID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OlympiadName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OlympiadLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OlympiadStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OlympiadEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OlympiadDirection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OlympiadType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="hidden-xs hidden-sm hidden-md hidden-lg">
+            @Html.DisplayFor(modelItem => item.OlympiadID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OlympiadName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OlympiadLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OlympiadStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OlympiadEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OlympiadDirection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OlympiadType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.University.UniversityName)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.OlympiadID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.OlympiadID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model Olympiad.Areas.Admin.Models.OlympiadStudentViewModel
+
+    @{
+        ViewBag.Title = "Добавление результатов студента";
+    }
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Добавление результатов студента</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.OlympiadID, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.OlympiadID, new SelectList(ViewBag.Olympiads, "Value", "Text", 1))
+                    @Html.ValidationMessageFor(model => model.Olympiad.OlympiadName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.StudentID, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.StudentID, new SelectList(ViewBag.Students, "Value", "Text", 1))
+                    @Html.ValidationMessageFor(model => model.Student.StudentSurname)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.StudentPlace, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.StudentPlace, new { type = "number", min = "1", step = "1" })
+                    @Html.ValidationMessageFor(model => model.StudentPlace)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Prize, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @{
+                        IList<SelectListItem> list = Enum.GetValues(typeof(Prize)).Cast<Prize>().Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString() }).ToList();
+                        SelectList data = new SelectList(list, "Value", "Text");
+                    }
+                    @Html.DropDownListFor(model => model.Prize, data)
+                    @Html.ValidationMessageFor(model => model.Prize)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.InstructorID, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.InstructorID, new SelectList(ViewBag.Instructors, "Value", "Text", 1))
+                    @Html.ValidationMessageFor(model => model.Instructor.InstructorSurname)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Добавить" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Назад к списку", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
