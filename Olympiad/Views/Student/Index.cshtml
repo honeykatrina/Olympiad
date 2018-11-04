@@ -7,9 +7,6 @@
 
 <h4>@ViewBag.Title</h4>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th class="hidden-xs hidden-sm hidden-md hidden-lg">
@@ -64,10 +61,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Department.DepartmentName)
-        </td>
-        <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id = item.StudentID }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.StudentID })
         </td>
     </tr>
 }

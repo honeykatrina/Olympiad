@@ -6,9 +6,6 @@
 
 <h4>@ViewBag.Title</h4>
 
-<p>
-    @Html.ActionLink("Добавить результат", "Create")
-</p>
 <table class="table">
     <tr>
         <th class="hidden-xs hidden-sm hidden-md hidden-lg">
@@ -53,10 +50,6 @@
             @Html.DisplayFor(modelItem => item.Instructor.InstructorSurname)
             @Html.DisplayFor(modelItem => item.Instructor.InstructorName)
             @Html.DisplayFor(modelItem => item.Instructor.InstructorPatronymic)
-        </td>
-        <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.OlympiadTeamID }) |
-            @Html.ActionLink("Удалить", "Delete", new { id = item.OlympiadTeamID })
         </td>
     </tr>
 }
