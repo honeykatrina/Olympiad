@@ -114,7 +114,7 @@ namespace LogicLayer.Services
 
         public string GetDate(DateTime d1, DateTime d2)
         {
-            CultureInfo ci = CultureInfo.CreateSpecificCulture("ua-UA");
+            CultureInfo ci = CultureInfo.CreateSpecificCulture("uk-UA");
             DateTimeFormatInfo dtfi = ci.DateTimeFormat;
             string rightFormat = "";
             dtfi.AbbreviatedMonthNames = new string[] { "січня", "лютого", "березня",
@@ -160,7 +160,10 @@ namespace LogicLayer.Services
             {
                 var r = t.InsertRow();
                 r.Cells[0].Paragraphs[0].Append(ol.OlympiadName);
-                r.Cells[1].Paragraphs[0].Append(ol.OlympiadLevel + ", " + ol.University.City + ", " + ol.University.UniversityName + ", " + GetDate(ol.OlympiadStartDate, ol.OlympiadEndDate));
+                r.Cells[1].Paragraphs[0].Append(ol.OlympiadLevel + ", " 
+                    + ol.University.City + ", " 
+                    + ol.University.UniversityName + ", " 
+                    + GetDate(ol.OlympiadStartDate, ol.OlympiadEndDate));
                 r.Cells[2].Paragraphs[0].Append(GetNumberOfParticipants(ol.OlympiadID));
                 r.Cells[3].Paragraphs[0].Append(GetInstructor(ol.OlympiadID));
                 r.Cells[4].Paragraphs[0].Append(GetResults(ol.OlympiadID));
